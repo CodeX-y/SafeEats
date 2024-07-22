@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      User diet #<%= @the_user_diet.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/user_diets">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_user_diet/<%= @the_user_diet.id %>">
+          Delete user diet
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_user_diet.user_id %>
+      </dd>
+
+      <dt>
+        Diet
+      </dt>
+      <dd>
+        <%= @the_user_diet.diet_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_user_diet.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_user_diet.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit user diet
+    </h2>
+
+    <form action="/modify_user_diet/<%= @the_user_diet.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_user_diet.user_id %>">
+      </div>
+
+      <div>
+        <label for="diet_id_box">
+          Diet
+        </label>
+
+        <input type="text" id="diet_id_box" name="query_diet_id" value="<%= @the_user_diet.diet_id %>">
+      </div>
+
+      <button>
+        Update user diet
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

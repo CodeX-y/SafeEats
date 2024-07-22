@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the User diet resource:
+
+  # CREATE
+  post("/insert_user_diet", { :controller => "user_diets", :action => "create" })
+          
+  # READ
+  get("/user_diets", { :controller => "user_diets", :action => "index" })
+  
+  get("/user_diets/:path_id", { :controller => "user_diets", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_user_diet/:path_id", { :controller => "user_diets", :action => "update" })
+  
+  # DELETE
+  get("/delete_user_diet/:path_id", { :controller => "user_diets", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Diet type resource:
 
   # CREATE
