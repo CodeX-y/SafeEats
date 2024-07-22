@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all diet compliances
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new diet compliance
+    </h2>
+
+    <form action="/insert_diet_compliance" method="post">
+      <div>
+        <label for="ingredient_id_box">
+          Ingredient
+        </label>
+
+        <input type="text" id="ingredient_id_box" name="query_ingredient_id">
+      </div>
+
+      <div>
+        <label for="diet_id_box">
+          Diet
+        </label>
+
+        <input type="text" id="diet_id_box" name="query_diet_id">
+      </div>
+
+      <button>
+        Create diet compliance
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Ingredient
+        </th>
+
+        <th>
+          Diet
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_diet_compliances.each do |a_diet_compliance| %>
+      <tr>
+        <td>
+          <%= a_diet_compliance.id %>
+        </td>
+
+        <td>
+          <%= a_diet_compliance.ingredient_id %>
+        </td>
+
+        <td>
+          <%= a_diet_compliance.diet_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_diet_compliance.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_diet_compliance.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/diet_compliances/<%= a_diet_compliance.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Diet compliance #<%= @the_diet_compliance.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/diet_compliances">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_diet_compliance/<%= @the_diet_compliance.id %>">
+          Delete diet compliance
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Ingredient
+      </dt>
+      <dd>
+        <%= @the_diet_compliance.ingredient_id %>
+      </dd>
+
+      <dt>
+        Diet
+      </dt>
+      <dd>
+        <%= @the_diet_compliance.diet_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_diet_compliance.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_diet_compliance.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit diet compliance
+    </h2>
+
+    <form action="/modify_diet_compliance/<%= @the_diet_compliance.id %>"  method="post" >
+      <div>
+        <label for="ingredient_id_box">
+          Ingredient
+        </label>
+
+        <input type="text" id="ingredient_id_box" name="query_ingredient_id" value="<%= @the_diet_compliance.ingredient_id %>">
+      </div>
+
+      <div>
+        <label for="diet_id_box">
+          Diet
+        </label>
+
+        <input type="text" id="diet_id_box" name="query_diet_id" value="<%= @the_diet_compliance.diet_id %>">
+      </div>
+
+      <button>
+        Update diet compliance
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

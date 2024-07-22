@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Diet compliance resource:
+
+  # CREATE
+  post("/insert_diet_compliance", { :controller => "diet_compliances", :action => "create" })
+          
+  # READ
+  get("/diet_compliances", { :controller => "diet_compliances", :action => "index" })
+  
+  get("/diet_compliances/:path_id", { :controller => "diet_compliances", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_diet_compliance/:path_id", { :controller => "diet_compliances", :action => "update" })
+  
+  # DELETE
+  get("/delete_diet_compliance/:path_id", { :controller => "diet_compliances", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Ingredient resource:
 
   # CREATE
