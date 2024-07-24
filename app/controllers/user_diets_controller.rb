@@ -22,28 +22,24 @@ class UserDietsController < ApplicationController
   # POST /user_diets or /user_diets.json
   def create
     @user_diet = UserDiet.new(user_diet_params)
+    @user_diet.user_id = current_user.id
 
-    respond_to do |format|
-      if @user_diet.save
-        format.html { redirect_to user_diet_url(@user_diet), notice: "User diet was successfully created." }
-        format.json { render :show, status: :created, location: @user_diet }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user_diet.errors, status: :unprocessable_entity }
-      end
+    if @user_diet.save
+      redirect_to @user_diet, { :notice => "User diet was successfully created." }
+    else
+      render({ :template => "user_diets/new" })
     end
   end
 
   # PATCH/PUT /user_diets/1 or /user_diets/1.json
   def update
-    respond_to do |format|
-      if @user_diet.update(user_diet_params)
-        format.html { redirect_to user_diet_url(@user_diet), notice: "User diet was successfully updated." }
-        format.json { render :show, status: :ok, location: @user_diet }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user_diet.errors, status: :unprocessable_entity }
-      end
+    @user_diet = UserDiet.find(params.fetch("id"))
+    @user_diet.user_id = current_user.id
+
+    if @user_diet.update(user_diet_params)
+      redirect_to @user_diet, { :notice => "User diet was successfully updated." }
+    else
+      render({ :template => "user_diets/edit" })
     end
   end
 
@@ -66,5 +62,9 @@ class UserDietsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_diet_params
       params.require(:user_diet).permit(:user_id, :diet_id)
+    end
+
+    def user_diet_params
+      params.require("user_diet").permit("diet_id")
     end
 end
