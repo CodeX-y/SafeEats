@@ -23,5 +23,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many  :userdiets, class_name: "UserDiet", foreign_key: "user_id", dependent: :destroy
+  has_many  :user_diets, class_name: "UserDiet", foreign_key: "user_id", dependent: :destroy
 end

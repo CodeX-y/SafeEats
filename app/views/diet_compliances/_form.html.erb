@@ -1,27 +1,12 @@
+
+
 <%= form_with(model: diet_compliance) do |form| %>
-  <% if diet_compliance.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(diet_compliance.errors.count, "error") %> prohibited this diet_compliance from being saved:</h2>
-
-      <ul>
-        <% diet_compliance.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div>
-    <%= form.label :ingredient_id, style: "display: block" %>
-    <%= form.number_field :ingredient_id %>
+    <%= form.label :ingredient_name, "Ingredient Name", { :style => "display: block" } %>
+    <%= form.text_field :ingredient_name %>
   </div>
 
   <div>
-    <%= form.label :diet_id, style: "display: block" %>
-    <%= form.number_field :diet_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit "Check Compliance" %>
   </div>
 <% end %>
