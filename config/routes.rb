@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "users#"
+  # root to: "users#user_diet"
 
   devise_for :users
 
@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   resources :user_diets
   resources :diet_types
 
-  get ":username/diet" => "user_diets#index", as: :user_diet
-  get "diets" => "diet_types#index", as: :diets
-  get ":username/ingredient" => "ingredients#index", as: :ingredient
+  get ":username/diet" => "user_diets#index"
+  get "diets" => "diet_types#index"
+  get ":username/ingredient" => "ingredients#index"
 
 end

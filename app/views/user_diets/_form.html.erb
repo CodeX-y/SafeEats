@@ -11,14 +11,12 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.number_field :user_id %>
-  </div>
+  <!-- Hidden field for user_id -->
+  <%= form.hidden_field :user_id, { :value => current_user.id } %>
 
   <div>
-    <%= form.label :diet_id, style: "display: block" %>
-    <%= form.number_field :diet_id %>
+    <%= form.label :diet_id, "Diet", { :style => "display: block" } %>
+    <%= form.collection_select(:diet_id, DietType.all, :id, :name, { :prompt => "Select a diet" }) %>
   </div>
 
   <div>
