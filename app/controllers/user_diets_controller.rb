@@ -27,7 +27,7 @@ class UserDietsController < ApplicationController
     if @user_diet.save
       redirect_to @user_diet, { :notice => "User diet was successfully created." }
     else
-      render({ :template => "user_diets/new" })
+      render "user_diets/new"
     end
   end
 
@@ -39,7 +39,7 @@ class UserDietsController < ApplicationController
     if @user_diet.update(user_diet_params)
       redirect_to @user_diet, { :notice => "User diet was successfully updated." }
     else
-      render({ :template => "user_diets/edit" })
+      render "user_diets/edit"
     end
   end
 
