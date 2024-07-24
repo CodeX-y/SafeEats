@@ -1,0 +1,51 @@
+Ingredient,Vegetarian,Vegan
+Milk,TRUE,FALSE
+Eggs,TRUE,FALSE
+Honey,TRUE,FALSE
+Chicken,FALSE,FALSE
+Beef,FALSE,FALSE
+Pork,FALSE,FALSE
+Fish,FALSE,FALSE
+Shrimp,FALSE,FALSE
+Cheese,TRUE,FALSE
+Butter,TRUE,FALSE
+Yogurt,TRUE,FALSE
+Cream,TRUE,FALSE
+Gelatin,FALSE,FALSE
+Lard,FALSE,FALSE
+Tofu,TRUE,TRUE
+Tempeh,TRUE,TRUE
+Seitan,TRUE,TRUE
+Soy Milk,TRUE,TRUE
+Almond Milk,TRUE,TRUE
+Rice Milk,TRUE,TRUE
+Olive Oil,TRUE,TRUE
+Coconut Oil,TRUE,TRUE
+Sunflower Oil,TRUE,TRUE
+Quinoa,TRUE,TRUE
+Lentils,TRUE,TRUE
+Beans,TRUE,TRUE
+Chickpeas,TRUE,TRUE
+Rice,TRUE,TRUE
+Wheat,TRUE,TRUE
+Oats,TRUE,TRUE
+Potatoes,TRUE,TRUE
+Carrots,TRUE,TRUE
+Broccoli,TRUE,TRUE
+Spinach,TRUE,TRUE
+Kale,TRUE,TRUE
+Lettuce,TRUE,TRUE
+Tomatoes,TRUE,TRUE
+Cucumbers,TRUE,TRUE
+Peppers,TRUE,TRUE
+Onions,TRUE,TRUE
+Garlic,TRUE,TRUE
+Ginger,TRUE,TRUE
+Basil,TRUE,TRUE
+Thyme,TRUE,TRUE
+Rosemary,TRUE,TRUE
+Parsley,TRUE,TRUE
+Cilantro,TRUE,TRUE
+Mint,TRUE,TRUE
+Salt,TRUE,TRUE
+Pepper,TRUE,TRUE
