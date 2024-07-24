@@ -9,4 +9,6 @@
 #  user_id    :integer
 #
 class UserDiet < ApplicationRecord
+  belongs_to :user, required: true, class_name: "User", foreign_key: "user_id"
+  belongs_to :diet, required: true, class_name: "DietType", foreign_key: "diet_id"
 end
