@@ -7,7 +7,6 @@
 #  updated_at    :datetime         not null
 #  diet_id       :integer
 #  ingredient_id :integer
-#  user_id       :integer
 #
 class DietCompliance < ApplicationRecord
   belongs_to :diet, required: true, class_name: "DietType", foreign_key: "diet_id"
