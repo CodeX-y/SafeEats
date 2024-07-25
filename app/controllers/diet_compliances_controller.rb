@@ -21,16 +21,22 @@ class DietCompliancesController < ApplicationController
 
   # POST /diet_compliances or /diet_compliances.json
   def create
-    @diet_compliance = DietCompliance.new(diet_compliance_params)
+    ingredient_name = params.fetch("diet_compliance").fetch("ingredient_name")
+    ingredient = Ingredient.where({ :name => ingredient_name }).at(0)
 
-    respond_to do |format|
-      if @diet_compliance.save
-        format.html { redirect_to diet_compliance_url(@diet_compliance), notice: "Diet compliance was successfully created." }
-        format.json { render :show, status: :created, location: @diet_compliance }
+    if ingredient
+      diet_compliance = DietCompliance.new
+      diet_compliance.diet_id = current_user.user_diet.diet_id
+      diet_compliance.ingredient_id = ingredient.id
+
+      if diet_compliance.save
+        redirect_to diet_compliance_path(diet_compliance), { :notice => "Diet compliance was successfully created." }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @diet_compliance.errors, status: :unprocessable_entity }
+        render({ :template => "diet_compliances/new" })
       end
+    else
+      flash.now[:alert] = "Ingredient not found."
+      render({ :template => "diet_compliances/new" })
     end
   end
 
