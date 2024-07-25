@@ -4,6 +4,7 @@ class IngredientsController < ApplicationController
   # GET /ingredients or /ingredients.json
   def index
     @ingredients = Ingredient.all
+    render "ingredients/index"
   end
 
   # GET /ingredients/1 or /ingredients/1.json
@@ -21,17 +22,11 @@ class IngredientsController < ApplicationController
 
   # POST /ingredients or /ingredients.json
   def create
-    @ingredient = Ingredient.new(ingredient_params)
+    ingredient = Ingredient.new
+    ingredient.name = params.fetch("ingredient_name")
+    ingredient.save
 
-    respond_to do |format|
-      if @ingredient.save
-        format.html { redirect_to ingredient_url(@ingredient), notice: "Ingredient was successfully created." }
-        format.json { render :show, status: :created, location: @ingredient }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @ingredient.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to(ingredients_path)
   end
 
   # PATCH/PUT /ingredients/1 or /ingredients/1.json

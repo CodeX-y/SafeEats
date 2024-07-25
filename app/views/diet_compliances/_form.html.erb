@@ -1,10 +1,10 @@
-<%= form_with({ :model => @diet_compliance, :url => diet_compliances_path, :method => :post }) do |form| %>
+<%= form_with({ :url => ingredients_path, :method => :post }) do %>
   <div>
-    <%= form.label :ingredient_name, "Ingredient Name", { :style => "display: block" } %>
-    <%= form.text_field :ingredient_name %>
+    <label for="ingredient_name" style="display: block">Ingredient Name</label>
+    <input type="text" name="ingredient_name" id="ingredient_name"/>
   </div>
 
   <div>
-    <%= form.submit "Check Compliance" %>
+    <input type="submit" value="Add Ingredient"/>
   </div>
 <% end %>
