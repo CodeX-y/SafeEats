@@ -1,51 +1,44 @@
-Ingredient,Vegetarian,Vegan
-Milk,TRUE,FALSE
-Eggs,TRUE,FALSE
-Honey,TRUE,FALSE
-Chicken,FALSE,FALSE
-Beef,FALSE,FALSE
-Pork,FALSE,FALSE
-Fish,FALSE,FALSE
-Shrimp,FALSE,FALSE
-Cheese,TRUE,FALSE
-Butter,TRUE,FALSE
-Yogurt,TRUE,FALSE
-Cream,TRUE,FALSE
-Gelatin,FALSE,FALSE
-Lard,FALSE,FALSE
-Tofu,TRUE,TRUE
-Tempeh,TRUE,TRUE
-Seitan,TRUE,TRUE
-Soy Milk,TRUE,TRUE
-Almond Milk,TRUE,TRUE
-Rice Milk,TRUE,TRUE
-Olive Oil,TRUE,TRUE
-Coconut Oil,TRUE,TRUE
-Sunflower Oil,TRUE,TRUE
-Quinoa,TRUE,TRUE
-Lentils,TRUE,TRUE
-Beans,TRUE,TRUE
-Chickpeas,TRUE,TRUE
-Rice,TRUE,TRUE
-Wheat,TRUE,TRUE
-Oats,TRUE,TRUE
-Potatoes,TRUE,TRUE
-Carrots,TRUE,TRUE
-Broccoli,TRUE,TRUE
-Spinach,TRUE,TRUE
-Kale,TRUE,TRUE
-Lettuce,TRUE,TRUE
-Tomatoes,TRUE,TRUE
-Cucumbers,TRUE,TRUE
-Peppers,TRUE,TRUE
-Onions,TRUE,TRUE
-Garlic,TRUE,TRUE
-Ginger,TRUE,TRUE
-Basil,TRUE,TRUE
-Thyme,TRUE,TRUE
-Rosemary,TRUE,TRUE
-Parsley,TRUE,TRUE
-Cilantro,TRUE,TRUE
-Mint,TRUE,TRUE
-Salt,TRUE,TRUE
-Pepper,TRUE,TRUE
+Ingredient,Diet Compliance
+Milk,Vegetarian
+Eggs,Vegetarian
+Honey,Vegetarian
+Cheese,Vegetarian
+Butter,Vegetarian
+Yogurt,Vegetarian
+Cream,Vegetarian
+Tofu,Vegan
+Tempeh,Vegan
+Seitan,Vegan
+Soy Milk,Vegan
+Almond Milk,Vegan
+Rice Milk,Vegan
+Olive Oil,Vegan
+Coconut Oil,Vegan
+Sunflower Oil,Vegan
+Quinoa,Vegan
+Lentils,Vegan
+Beans,Vegan
+Chickpeas,Vegan
+Rice,Vegan
+Wheat,Vegan
+Oats,Vegan
+Potatoes,Vegan
+Carrots,Vegan
+Broccoli,Vegan
+Spinach,Vegan
+Kale,Vegan
+Lettuce,Vegan
+Tomatoes,Vegan
+Cucumbers,Vegan
+Peppers,Vegan
+Onions,Vegan
+Garlic,Vegan
+Ginger,Vegan
+Basil,Vegan
+Thyme,Vegan
+Rosemary,Vegan
+Parsley,Vegan
+Cilantro,Vegan
+Mint,Vegan
+Salt,Vegan
+Pepper,Vegan
