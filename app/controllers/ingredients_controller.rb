@@ -1,5 +1,6 @@
 class IngredientsController < ApplicationController
   before_action :set_ingredient, only: %i[ show edit update destroy ]
+  require 'csv'
 
   # GET /ingredients or /ingredients.json
   def index
@@ -22,11 +23,34 @@ class IngredientsController < ApplicationController
 
   # POST /ingredients or /ingredients.json
   def create
-    ingredient = Ingredient.new
-    ingredient.name = params.fetch("ingredient_name")
-    ingredient.save
+    ingredient_name = params.fetch("ingredient_name").strip.downcase
+    csv_path = Rails.root.join('db', 'ingredients.csv')
+    csv_data = CSV.read(csv_path, headers: true)
 
-    redirect_to(ingredients_path)
+    matching_row = csv_data.find { |row| row['Ingredient'].strip.downcase == ingredient_name }
+
+    if matching_row
+      diet_type_name = matching_row['Diet Compliance'].strip.downcase
+      diet_type = DietType.where('LOWER(name) = ?', diet_type_name).at(0)
+
+      if diet_type
+        @ingredient = Ingredient.new
+        @ingredient.name = ingredient_name
+        @ingredient.diet_id = diet_type.id
+
+        if @ingredient.save
+          redirect_to ingredients_path
+        else
+          render({ :template => "ingredients/new" })
+        end
+      else
+        flash[:alert] = "Diet type not found for the ingredient in the CSV file."
+        render({ :template => "ingredients/new" })
+      end
+    else
+      flash[:alert] = "Ingredient not found in the CSV file."
+      render({ :template => "ingredients/new" })
+    end
   end
 
   # PATCH/PUT /ingredients/1 or /ingredients/1.json

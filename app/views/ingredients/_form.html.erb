@@ -1,4 +1,8 @@
-<%= form_with(model: ingredient) do |form| %>
+<%= form_with(model: @ingredient) do |form| %>
+  <% if flash[:alert] %>
+    <div style="color: red;"><%= flash[:alert] %></div>
+  <% end %>
+  
   <div>
     <label for="ingredient_name" style="display: block">Ingredient Name</label>
     <input type="text" name="ingredient_name" id="ingredient_name"/>
