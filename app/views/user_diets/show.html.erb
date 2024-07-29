@@ -1,10 +1,6 @@
-
-
-<form action="/ingridients/[:ingridient_name]">
-  <label for="name"></label>
-  <input type="text", name="name", id="name">
-  <button type="submit">Check ingridient</button>
-</form>
-
-<h1>TEST</h1>
-<%= @user_diet.diet.name %>
+<%= form_with url: "/safe", method: :get do |form| %>
+  <div>
+    <%= form.label :ingredient  %>
+    <%= form.text_field :ingredient %>
+  </div>
+<% end %>
