@@ -21,50 +21,33 @@ class IngredientsController < ApplicationController
   def edit
   end
 
-  # POST /ingredients or /ingredients.json
-  def create
-    ingredient_name = params.fetch("ingredient_name").strip.downcase
-    csv_path = Rails.root.join('db', 'ingredients.csv')
-    csv_data = CSV.read(csv_path, headers: true)
+ # POST /ingredients or /ingredients.json
+ def create
+  @ingredient = Ingredient.new(ingredient_params)
 
-    matching_row = csv_data.find { |row| row['Ingredient'].strip.downcase == ingredient_name }
-
-    if matching_row
-      diet_type_name = matching_row['Diet Compliance'].strip.downcase
-      diet_type = DietType.where('LOWER(name) = ?', diet_type_name).at(0)
-
-      if diet_type
-        @ingredient = Ingredient.new
-        @ingredient.name = ingredient_name
-        @ingredient.diet_id = diet_type.id
-
-        if @ingredient.save
-          redirect_to ingredient_path(@ingredient.id)
-        else
-          render "ingredients/new" 
-        end
-      else
-        flash[:alert] = "Diet type not found for the ingredient in the CSV file."
-        render "ingredients/new"
-      end
+  respond_to do |format|
+    if @ingredient.save
+      format.html { redirect_to ingredient_url(@ingredient), notice: "Ingredient was successfully created." }
+      format.json { render :show, status: :created, location: @ingredient }
     else
-      flash[:alert] = "Ingredient not found in the CSV file."
-      render "ingredients/new"
+      format.html { render :new, status: :unprocessable_entity }
+      format.json { render json: @ingredient.errors, status: :unprocessable_entity }
     end
   end
+end
 
-  # PATCH/PUT /ingredients/1 or /ingredients/1.json
-  def update
-    respond_to do |format|
-      if @ingredient.update(ingredient_params)
-        format.html { redirect_to ingredient_url(@ingredient), notice: "Ingredient was successfully updated." }
-        format.json { render :show, status: :ok, location: @ingredient }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @ingredient.errors, status: :unprocessable_entity }
-      end
+# PATCH/PUT /ingredients/1 or /ingredients/1.json
+def update
+  respond_to do |format|
+    if @ingredient.update(ingredient_params)
+      format.html { redirect_to ingredient_url(@ingredient), notice: "Ingredient was successfully updated." }
+      format.json { render :show, status: :ok, location: @ingredient }
+    else
+      format.html { render :edit, status: :unprocessable_entity }
+      format.json { render json: @ingredient.errors, status: :unprocessable_entity }
     end
   end
+end
 
   # DELETE /ingredients/1 or /ingredients/1.json
   def destroy
