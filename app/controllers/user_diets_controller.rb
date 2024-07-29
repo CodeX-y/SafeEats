@@ -8,6 +8,7 @@ class UserDietsController < ApplicationController
 
   # GET /user_diets/1 or /user_diets/1.json
   def show
+    
   end
 
   # GET /user_diets/new

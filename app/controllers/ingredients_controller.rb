@@ -39,17 +39,17 @@ class IngredientsController < ApplicationController
         @ingredient.diet_id = diet_type.id
 
         if @ingredient.save
-          redirect_to ingredients_path
+          redirect_to ingredient_path(@ingredient.id)
         else
-          render({ :template => "ingredients/new" })
+          render "ingredients/new" 
         end
       else
         flash[:alert] = "Diet type not found for the ingredient in the CSV file."
-        render({ :template => "ingredients/new" })
+        render "ingredients/new"
       end
     else
       flash[:alert] = "Ingredient not found in the CSV file."
-      render({ :template => "ingredients/new" })
+      render "ingredients/new"
     end
   end
 

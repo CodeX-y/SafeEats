@@ -1,10 +1,10 @@
-<p style="color: green"><%= notice %></p>
 
-<%= render @user_diet %>
 
-<div>
-  <%= link_to "Edit this user diet", edit_user_diet_path(@user_diet) %> |
-  <%= link_to "Back to user diets", user_diets_path %>
+<form action="/ingridients/[:ingridient_name]">
+  <label for="name"></label>
+  <input type="text", name="name", id="name">
+  <button type="submit">Check ingridient</button>
+</form>
 
-  <%= button_to "Destroy this user diet", @user_diet, method: :delete %>
-</div>
+<h1>TEST</h1>
+<%= @user_diet.diet.name %>
