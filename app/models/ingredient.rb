@@ -4,11 +4,10 @@
 #
 #  id         :integer          not null, primary key
 #  name       :string
-#  vegan      :boolean
-#  vegetarian :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  diet_id    :integer
 #
 class Ingredient < ApplicationRecord
-  has_many  :dietary_ingredient_rules, class_name: "DietCompliance", foreign_key: "ingredient_id", dependent: :destroy
+  belongs_to :diet_type, required: true, class_name: "DietType", foreign_key: "diet_id"
 end

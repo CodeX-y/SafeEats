@@ -11,6 +11,7 @@
 #  username               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  diet_id                :integer
 #
 # Indexes
 #
@@ -23,5 +24,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many  :userdiets, class_name: "UserDiet", foreign_key: "user_id", dependent: :destroy
+  belongs_to :diet, required: true, class_name: "DietType", foreign_key: "diet_id"
 end

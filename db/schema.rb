@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_24_182147) do
-  create_table "diet_compliances", force: :cascade do |t|
-    t.integer "ingredient_id"
-    t.integer "diet_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+ActiveRecord::Schema[7.1].define(version: 2024_07_30_155254) do
   create_table "diet_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -26,17 +19,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_24_182147) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
-    t.boolean "vegetarian"
-    t.boolean "vegan"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "user_diets", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "diet_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,6 +33,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_24_182147) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.integer "diet_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

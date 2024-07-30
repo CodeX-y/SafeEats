@@ -8,6 +8,6 @@
 #  updated_at :datetime         not null
 #
 class DietType < ApplicationRecord
-  has_many  :userdiets, class_name: "UserDiet", foreign_key: "diet_id", dependent: :destroy
-  has_many  :dietary_ingredient_rules, class_name: "DietCompliance", foreign_key: "diet_id", dependent: :destroy
+  has_many  :users, class_name: "User", foreign_key: "diet_id", dependent: :destroy
+  has_many  :ingredients, class_name: "Ingredient", foreign_key: "diet_id", dependent: :destroy
 end
