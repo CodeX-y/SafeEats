@@ -1,5 +1,5 @@
 <% if @ingredient %>
-  <% user_diet = DietType.where({ :user_id => current_user.id }).first %>
+  <% user_diet = current_user %>
   <% if user_diet %>
     <% if user_diet.diet_id == @vegan_diet_id %>
       <% if @ingredient.diet_id == @vegan_diet_id %>
