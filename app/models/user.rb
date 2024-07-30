@@ -25,4 +25,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :diet, required: true, class_name: "DietType", foreign_key: "diet_id"
+
+  # validates :username,
+  #   presence: true,
+  #   uniqueness: true,
+  #   format: { 
+  #     with: /\A[\w_\.]+\z/i,
+  #     message: "can only contain letters, numbers, periods, and underscores"
+  #   }
 end
