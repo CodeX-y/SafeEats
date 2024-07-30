@@ -1,4 +1,8 @@
 class ComplianceController < ApplicationController
+  def check
+    render "compliant/ingredient"
+  end
+
   def safe
     @ingredient_name = params["ingredient"]
     @ingredient = Ingredient.where("LOWER(name) = ?", @ingredient_name.downcase).first

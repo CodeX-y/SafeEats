@@ -9,7 +9,7 @@ class HomepageController < ApplicationController
   def update
     current_user.diet_id = params["diet_id"]
     if current_user.save
-      redirect_to(safe_path)
+      redirect_to(check_ingredient_path)
     else
       @diet_types = DietType.all
       render "home/diet"

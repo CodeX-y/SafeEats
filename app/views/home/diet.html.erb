@@ -17,10 +17,3 @@
     <input type="submit" value="Submit">
   </div>
 <% end %>
-
-<%= form_with url: "/safe", method: :get do |form| %>
-  <div>
-    <%= form.label :ingredient  %>
-    <%= form.text_field :ingredient %>
-  </div>
-<% end %>

@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :homepage, only: [:edit, :update]
   resources :ingredients
   
+  get "/check_ingredient" => "compliance#check"
   get "/safe" => "compliance#safe"
 end
