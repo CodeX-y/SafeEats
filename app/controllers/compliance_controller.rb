@@ -12,7 +12,8 @@ class ComplianceController < ApplicationController
 
     @vegan_diet_id = vegan_diet ? vegan_diet.id : nil
     @vegetarian_diet_id = vegetarian_diet ? vegetarian_diet.id : nil
-    
+
+
     render "compliant/safe"
   end
 end
