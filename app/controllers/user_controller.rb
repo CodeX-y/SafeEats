@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ user_diets ingredients ]
+  before_action :set_user, { :only => [:new] }
+
+  def new
+    render "user/diet"
+  end
 
   private
 
