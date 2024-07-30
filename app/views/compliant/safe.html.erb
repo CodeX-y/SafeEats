@@ -19,6 +19,6 @@
   <% end %>
 
 <% else %>
-  <%= pp "Could not find ingredient"%>
+  <% flash[:alert] = "Either a meat-based product or could not find ingredient" %>
   <%= render "compliant/cant_eat" %>
 <% end %>
