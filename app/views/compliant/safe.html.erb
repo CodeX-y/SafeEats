@@ -1,8 +1,24 @@
-<%= @found_ingredient %>
-
-
-<% if @found_ingredient %>
-  <p>Found ingredient in table</p>
+<% if @ingredient %>
+  <% user_diet = UserDiet.where({ :user_id => current_user.id }).first %>
+  <% if user_diet %>
+    <% if user_diet.diet_id == @vegan_diet_id %>
+      <% if @ingredient.diet_id == @vegan_diet_id %>
+        <p>Vegan? You can eat!</p>
+      <% else %>
+        <p>You can't eat</p>
+      <% end %>
+    <% elsif user_diet.diet_id == @vegetarian_diet_id %>
+      <% if @ingredient.diet_id == @vegan_diet_id || @ingredient.diet_id == @vegetarian_diet_id %>
+        <p>Vegetarian? You can eat!</p>
+      <% else %>
+        <p>You can't eat</p>
+      <% end %>
+    <% else %>
+      <p>You can't eat</p>
+    <% end %>
+  <% else %>
+    <p>No diet found for user</p>
+  <% end %>
 <% else %>
-  <p>Ingredient not found</p>
+  <p>Ingredient is a meat-related product</p>
 <% end %>
