@@ -1,5 +1,8 @@
-#conditionals
+<%= @found_ingredient %>
 
 
-<%= @ingredient%>
-#display yes or no
+<% if @found_ingredient %>
+  <p>Found ingredient in table</p>
+<% else %>
+  <p>Ingredient not found</p>
+<% end %>
