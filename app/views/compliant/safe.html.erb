@@ -3,22 +3,22 @@
   <% if user_diet %>
     <% if user_diet.diet_id == @vegan_diet_id %>
       <% if @ingredient.diet_id == @vegan_diet_id %>
-        <p>Vegan? You can eat!</p>
+        <%= render "compliant/can_eat" %>
       <% else %>
-        <p>You can't eat</p>
+        <%= render "compliant/can_eat" %>
       <% end %>
     <% elsif user_diet.diet_id == @vegetarian_diet_id %>
       <% if @ingredient.diet_id == @vegan_diet_id || @ingredient.diet_id == @vegetarian_diet_id %>
-        <p>Vegetarian? You can eat!</p>
+        <%= render "compliant/can_eat" %>
       <% else %>
-        <p>You can't eat</p>
+       <%= render "compliant/cant_eat" %>
       <% end %>
     <% else %>
-      <p>You can't eat</p>
+      <%= render "compliant/cant_eat" %>
     <% end %>
   <% else %>
     <p>No diet found for user</p>
   <% end %>
 <% else %>
-  <p>Ingredient is a meat-related product</p>
+  <%= render "compliant/cant_eat" %>
 <% end %>
