@@ -1,17 +1,19 @@
 class HomepageController < ApplicationController
-  before_action :set_user
+  before_action :authenticate_user!
 
-  def select_diet
+  def edit
+    @diet_types = DietType.all
     render "home/diet"
   end
 
-  private
-
-    def set_user
-      if params[:username]
-        @user = User.find_by!(username: params.fetch(:username))
-      else
-        @user = current_user
-      end
+  def update
+    current_user.diet_id = params["diet_id"]
+    if current_user.save
+      redirect_to(safe_path)
+    else
+      @diet_types = DietType.all
+      render "home/diet"
     end
+  end
+
 end

@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_30_034847) do
-  create_table "diet_compliances", force: :cascade do |t|
-    t.integer "ingredient_id"
-    t.integer "diet_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+ActiveRecord::Schema[7.1].define(version: 2024_07_30_155254) do
   create_table "diet_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
