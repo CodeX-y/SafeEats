@@ -1,4 +1,4 @@
-<h1>Select a Diet</h1>
+<h1 class= "title">Select a Diet</h1>
 
 <%= form_with(url: url_for({ :controller => "homepage", :action => "update", :id => current_user.id }), method: :patch) do %>
 
@@ -13,7 +13,7 @@
     </select>
   </div>
 
-  <div>
+  <div class="btn">
     <input type="submit" value="Submit">
   </div>
 <% end %>

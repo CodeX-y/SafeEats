@@ -9,14 +9,15 @@
     <%= render partial: "shared/cdn_assets" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
     <%= javascript_importmap_tags %>
 
   </head>
 
-  <body class="d-flex flex-column justify-content-center align-items-center">
+  <body class="d-flex flex-column justify-content-center">
     <%= render partial: "shared/navbar" %>
 
-    <div class="container text-center">
+    <div class="container">
       <div class="row mb-4">
         <div class="col-md-6 offset-md-3">
           <% if notice.present? %>
