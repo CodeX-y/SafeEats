@@ -1,14 +1,107 @@
-.btn {
-  
-}
-
-.btn:hover {
-  color: #0056b3; /* Darker shade on hover */
-}
-
 .title {
-  color: #343a40;         /* Dark color for the text */
-  font-size: 5rem;      /* Font size */
-  font-weight: bold;      /* Bold text */
-  margin-bottom: 20px;   /* Space below heading */
+  text-align: center;
+  color: #343a40; 
+  font-size: 5rem;
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.prompt {
+  font-size: 3rem;
+}
+
+/* Center-align the form */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+/* Style the form elements */
+form {
+  width: 100%;
+  padding: 20px;
+}
+
+/* Style the label */
+form label {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Style the text input fields */
+form input[type="text"] {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style the dropdown menu */
+select {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style the submit button container */
+.btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+/* Style the submit button */
+.btn input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;        
+  padding: 10px 20px;
+  font-size: 16px;     
+  cursor: pointer;           
+  transition: background-color 0.3;
+  display: block;          
+  margin-top: 15px;      
+}
+
+.btn input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Style the label */
+label {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  display: block;
+}
+
+
+.can-eat {
+  height:100vh;
+  background-color: rgb(55, 107, 3);
+}
+
+.cant-eat {
+  height:100vh;
+  background-color: rgba(185, 9, 9, 0.816);
+}
+
+.compliance-result {
+  padding-top: 3rem;
+  text-align: center;
+  color: #15151a; 
+  font-size: 7rem;
+  font-weight: bold;
 }

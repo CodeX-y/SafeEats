@@ -8,9 +8,7 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
-#  username               :string
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
+#  username               :string           default(""), not null
 #  diet_id                :integer
 #
 # Indexes
@@ -24,7 +22,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :diet, required: true, class_name: "DietType", foreign_key: "diet_id"
+  belongs_to :diet, required: false, class_name: "DietType", foreign_key: "diet_id"
 
   # validates :username,
   #   presence: true,

@@ -1,19 +1,24 @@
-<h1 class= "title">Select a Diet</h1>
+<h1 class= "title">Scan it, Eat it, Love it!</h1>
 
-<%= form_with(url: url_for({ :controller => "homepage", :action => "update", :id => current_user.id }), method: :patch) do %>
+<br>
 
-  <%= hidden_field_tag :user_id, current_user.id %>
+<div class= "form-container">
+  <%= form_with(url: url_for({ :controller => "homepage", :action => "update", :id => current_user.id }), method: :patch) do %>
 
-  <div>
-    <label for="diet_id">Diet Type:</label>
-    <select name="diet_id" id="diet_id">
-      <% @diet_types.each do |diet_type| %>
-        <option value="<%= diet_type.id %>" <%= 'selected' if diet_type.id == current_user.diet_id %>><%= diet_type.name %></option>
-      <% end %>
-    </select>
-  </div>
+    <%= hidden_field_tag :user_id, current_user.id %>
 
-  <div class="btn">
-    <input type="submit" value="Submit">
-  </div>
-<% end %>
+    <div>
+      <label for="diet_id"></label>
+      <select name="diet_id" id="diet_id">
+      <option value="">Select a Diet</option>
+        <% @diet_types.each do |diet_type| %>
+          <option value="<%= diet_type.id %>" <%= 'selected' if diet_type.id == current_user.diet_id %>><%= diet_type.name %></option>
+        <% end %>
+      </select>
+    </div>
+
+    <div class="btn">
+      <input type="submit" value="Submit">
+    </div>
+  <% end %>
+</div>
