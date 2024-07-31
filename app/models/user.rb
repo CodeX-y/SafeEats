@@ -22,13 +22,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :diet, required: false, class_name: "DietType", foreign_key: "diet_id"
-
-  # validates :username,
-  #   presence: true,
-  #   uniqueness: true,
-  #   format: { 
-  #     with: /\A[\w_\.]+\z/i,
-  #     message: "can only contain letters, numbers, periods, and underscores"
-  #   }
+  belongs_to :diet, class_name: "DietType", foreign_key: "diet_id"
 end

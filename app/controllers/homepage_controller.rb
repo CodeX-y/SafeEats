@@ -12,7 +12,7 @@ class HomepageController < ApplicationController
       redirect_to(check_ingredient_path)
     else
       @diet_types = DietType.all
-      render "home/diet"
+      redirect_to root_path, alert: "Please select your diet before proceeding."
     end
   end
 

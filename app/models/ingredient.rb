@@ -6,6 +6,7 @@
 #  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  diet_id    :integer
 #
 class Ingredient < ApplicationRecord
   belongs_to :diet_type, required: true, class_name: "DietType", foreign_key: "diet_id"
