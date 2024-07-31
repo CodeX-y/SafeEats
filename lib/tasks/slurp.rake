@@ -10,9 +10,15 @@ namespace :db do
       diet_type = DietType.where("LOWER(name) = ?", diet_name).first_or_create({ :name => diet_name })
 
       ingredient_name = row["Ingredient"]
-      ingredient = Ingredient.where({ :name => ingredient_name }).first_or_initialize
-      ingredient.diet_id = diet_type.id
-      ingredient.save
+      existing_ingredient = Ingredient.where({ :name => ingredient_name }).first
+
+      # Only create new ingredients if they don't already exist
+      if existing_ingredient.nil?
+        ingredient = Ingredient.new
+        ingredient.name = ingredient_name
+        ingredient.diet_id = diet_type.id
+        ingredient.save
+      end
     end
 
     puts "Ingredients table has been filled from ingredients.csv"

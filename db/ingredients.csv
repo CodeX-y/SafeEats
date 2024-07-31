@@ -1,6 +1,6 @@
 Ingredient,Diet Compliance
 Milk,Vegetarian
-Eggs,Vegetarian
+Egg,Vegetarian
 Honey,Vegetarian
 Cheese,Vegetarian
 Butter,Vegetarian
@@ -16,22 +16,22 @@ Olive Oil,Vegan
 Coconut Oil,Vegan
 Sunflower Oil,Vegan
 Quinoa,Vegan
-Lentils,Vegan
-Beans,Vegan
-Chickpeas,Vegan
+Lentil,Vegan
+Bean,Vegan
+Chickpea,Vegan
 Rice,Vegan
 Wheat,Vegan
 Oats,Vegan
-Potatoes,Vegan
-Carrots,Vegan
+Potato,Vegan
+Carrot,Vegan
 Broccoli,Vegan
 Spinach,Vegan
 Kale,Vegan
 Lettuce,Vegan
-Tomatoes,Vegan
-Cucumbers,Vegan
-Peppers,Vegan
-Onions,Vegan
+Tomato,Vegan
+Cucumber,Vegan
+Pepper,Vegan
+Onion,Vegan
 Garlic,Vegan
 Ginger,Vegan
 Basil,Vegan
@@ -42,3 +42,162 @@ Cilantro,Vegan
 Mint,Vegan
 Salt,Vegan
 Pepper,Vegan
+Apple,Vegan
+Banana,Vegan
+Orange,Vegan
+Strawberry,Vegan
+Blueberry,Vegan
+Raspberry,Vegan
+Blackberry,Vegan
+Grape,Vegan
+Pear,Vegan
+Peach,Vegan
+Plum,Vegan
+Apricot,Vegan
+Avocado,Vegan
+Cabbage,Vegan
+Cauliflower,Vegan
+Zucchini,Vegan
+Eggplant,Vegan
+Mushroom,Vegan
+Pumpkin,Vegan
+Pea,Vegan
+Corn,Vegan
+Celery,Vegan
+Radish,Vegan
+Beet,Vegan
+Asparagus,Vegan
+Artichoke,Vegan
+Leek,Vegan
+Turnip,Vegan
+Parsnip,Vegan
+Chia Seed,Vegan
+Flax Seed,Vegan
+Hemp Seed,Vegan
+Sesame Seed,Vegan
+Cashew,Vegan
+Almond,Vegan
+Pistachio,Vegan
+Walnut,Vegan
+Pecan,Vegan
+Hazelnut,Vegan
+Brazil Nut,Vegan
+Pine Nut,Vegan
+Coconut,Vegan
+Date,Vegan
+Fig,Vegan
+Kiwi,Vegan
+Mango,Vegan
+Pineapple,Vegan
+Papaya,Vegan
+Lime,Vegan
+Lemon,Vegan
+Watermelon,Vegan
+Cantaloupe,Vegan
+Honeydew,Vegan
+Tangerine,Vegan
+Nectarine,Vegan
+Pomegranate,Vegan
+Cranberry,Vegan
+Durian,Vegan
+Jackfruit,Vegan
+Lychee,Vegan
+Starfruit,Vegan
+Passionfruit,Vegan
+Taro,Vegan
+Yam,Vegan
+Sweet Potato,Vegan
+Turmeric,Vegan
+Cardamom,Vegan
+Cinnamon,Vegan
+Clove,Vegan
+Nutmeg,Vegan
+Allspice,Vegan
+Cumin,Vegan
+Paprika,Vegan
+Coriander,Vegan
+Fennel,Vegan
+Dill,Vegan
+Chervil,Vegan
+Savory,Vegan
+Sage,Vegan
+Marjoram,Vegan
+Tarragon,Vegan
+Bay Leaf,Vegan
+Vanilla,Vegan
+Saffron,Vegan
+Chard,Vegan
+Okra,Vegan
+Rutabaga,Vegan
+Collard,Vegan
+Endive,Vegan
+Escarole,Vegan
+Fiddlehead,Vegan
+Kohlrabi,Vegan
+Radicchio,Vegan
+Rapini,Vegan
+Scallion,Vegan
+Shallot,Vegan
+Watercress,Vegan
+Arugula,Vegan
+Dandelion,Vegan
+Horseradish,Vegan
+Jicama,Vegan
+Yucca,Vegan
+Seaweed,Vegan
+Aloe,Vegan
+Lotus Root,Vegan
+Bamboo Shoot,Vegan
+Chestnut,Vegan
+Macadamia,Vegan
+Pistachio,Vegan
+Tamarind,Vegan
+Soursop,Vegan
+Gooseberry,Vegan
+Sapodilla,Vegan
+Clementine,Vegan
+Bergamot,Vegan
+Bitter Melon,Vegan
+Guava,Vegan
+Persimmon,Vegan
+Pomelo,Vegan
+Mulberry,Vegan
+Cloudberry,Vegan
+Lingonberry,Vegan
+Boysenberry,Vegan
+Carambola,Vegan
+Currant,Vegan
+Elderberry,Vegan
+Goji Berry,Vegan
+Huckleberry,Vegan
+Jostaberry,Vegan
+Longan,Vegan
+Rambutan,Vegan
+Mangosteen,Vegan
+Sugar Apple,Vegan
+Monstera,Vegan
+Miracle Fruit,Vegan
+Pawpaw,Vegan
+Quince,Vegan
+Rose Hip,Vegan
+Sorrel,Vegan
+Sumac,Vegan
+Tigernut,Vegan
+Ugli Fruit,Vegan
+White Sapote,Vegan
+Ackee,Vegan
+Amaranth,Vegan
+Celeriac,Vegan
+Sorrel,Vegan
+Sunchoke,Vegan
+Bok Choy,Vegan
+Mizuna,Vegan
+Tatsoi,Vegan
+Daikon,Vegan
+Lotus Seed,Vegan
+Water Chestnut,Vegan
+Arrowroot,Vegan
+Buckwheat,Vegan
+Freekeh,Vegan
+Farro,Vegan
+Teff,Vegan
