@@ -29,40 +29,39 @@
   font-size: 1.25rem;
 }
 
-form {
-  width: 100%;
-  padding: 20px;
+/* Background Colors */
+.bg-ash {
+  background-color: #c8c0b5;
 }
 
-form label {
-  display: block;
-  font-size: 2rem;
-  margin-bottom: 5px;
-  color: #333;
+.bg-oil {
+  background-color: #2D2717;
 }
 
-form input[type="text"] {
-  display: block;
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+/* Text Colors */
+.text-oil {
+  color: #2D2717;
 }
 
-select {
-  display: block;
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.text-marigold {
+  color: #BE8228;
 }
 
-label {
-  font-size: 1rem;
-  margin-bottom: 5px;
-  display: block;
+/* Button Colors */
+.btn-marigold {
+  background-color: #BE8228;
+  border-color: #BE8228;
+}
+
+.btn-marigold:hover {
+  background-color: #943A21;
+  border-color: #943A21;
+  color: #f7efe5;
+}
+
+/* Card Borders */
+.card {
+  border: 1px solid #943A21;
 }
 
 
