@@ -1,11 +1,11 @@
 .title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700; /* Bold */
+  color: #2D2717; /* Oil color from your palette */
   text-align: center;
-  color: #343a40; 
-  font-size: 5rem;
-  font-style: italic;
-  font-weight: bold;
-  margin-top: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .prompt {
@@ -76,7 +76,6 @@
 }
 
 .compliance-result {
-  padding-top: 3rem;
   text-align: center;
   color: #15151a; 
   font-size: 7rem;

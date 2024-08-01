@@ -1,7 +1,7 @@
 class HomepageController < ApplicationController
   def edit
     @diet_types = DietType.all
-    render "home/diet"
+    render "homepage/diet"
   end
 
   def update
