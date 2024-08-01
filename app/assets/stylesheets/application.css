@@ -12,8 +12,21 @@
   font-size: 3rem;
 }
 
-/* Center-align the form */
-.form-container {
+.scrolling-wrapper {
+  overflow-x: scroll;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.card {
+  min-width: 250px;
+  margin-right: 15px;
+}
+
+.card-text {
+  text-align: center;
+}
+
+/*.form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,13 +34,11 @@
   max-width: 500px;
 }
 
-/* Style the form elements */
 form {
   width: 100%;
   padding: 20px;
 }
 
-/* Style the label */
 form label {
   display: block;
   font-size: 2rem;
@@ -35,7 +46,6 @@ form label {
   color: #333;
 }
 
-/* Style the text input fields */
 form input[type="text"] {
   display: block;
   width: 100%;
@@ -45,7 +55,6 @@ form input[type="text"] {
   border-radius: 4px;
 }
 
-/* Style the dropdown menu */
 select {
   display: block;
   width: 100%;
@@ -53,16 +62,14 @@ select {
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
-}
+} */
 
-/* Style the submit button container */
-.btn {
+/* .btn {
   display: flex;
   justify-content: flex-end;
   margin-top: 15px;
 }
 
-/* Style the submit button */
 .btn input[type="submit"] {
   background-color: #007bff;
   color: white;
@@ -78,9 +85,8 @@ select {
 
 .btn input[type="submit"]:hover {
   background-color: #0056b3;
-}
+} */
 
-/* Style the label */
 label {
   font-size: 1rem;
   margin-bottom: 5px;

@@ -1,6 +1,4 @@
 class HomepageController < ApplicationController
-  before_action :authenticate_user!
-
   def edit
     @diet_types = DietType.all
     render "home/diet"

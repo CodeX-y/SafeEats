@@ -22,5 +22,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :diet, class_name: "DietType", foreign_key: "diet_id"
+  belongs_to :diet, required: false, class_name: "DietType", foreign_key: "diet_id"
 end
