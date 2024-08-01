@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'landing_page/landing'
   devise_for :users
   
   root "homepage#edit"

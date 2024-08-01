@@ -12,7 +12,6 @@ namespace :db do
       ingredient_name = row["Ingredient"]
       existing_ingredient = Ingredient.where({ :name => ingredient_name }).first
 
-      # Only create new ingredients if they don't already exist
       if existing_ingredient.nil?
         ingredient = Ingredient.new
         ingredient.name = ingredient_name

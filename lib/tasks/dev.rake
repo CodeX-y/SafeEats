@@ -4,6 +4,5 @@ task({ :sample_data => :environment }) do
     User.destroy_all
   end
 
-  # Default user
   User.create(email: "alice@example.com", username: "Alice", password: "password")
 end
