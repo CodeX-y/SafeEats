@@ -1,7 +1,15 @@
+:root {
+  --text: #462e2a;
+  --background: #fff9f0;
+  --primary: #c19471;
+  --secondary: #eedec9;
+  --accent: #efc8a4;
+}
+
 .title {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700; /* Bold */
-  color: #2D2717; /* Oil color from your palette */
+  font-weight: 700;
+  color: var(--text);
   text-align: center;
   margin-bottom: 2rem;
   text-transform: uppercase;
@@ -29,55 +37,52 @@
   font-size: 1.25rem;
 }
 
-/* Background Colors */
 .bg-ash {
-  background-color: #c8c0b5;
+  background-color: var(--secondary);
 }
 
 .bg-oil {
-  background-color: #2D2717;
+  background-color: var(--text);
 }
 
-/* Text Colors */
 .text-oil {
-  color: #2D2717;
+  color: var(--text);
 }
 
 .text-marigold {
-  color: #BE8228;
+  color: var(--primary);
 }
 
-/* Button Colors */
 .btn-marigold {
-  background-color: #BE8228;
-  border-color: #BE8228;
+  background-color: var(--primary);
+  border-color: var(--primary);
 }
 
 .btn-marigold:hover {
-  background-color: #943A21;
-  border-color: #943A21;
-  color: #f7efe5;
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--background);
 }
 
-/* Card Borders */
 .card {
-  border: 1px solid #943A21;
+  border: 2px solid var(--primary);
+  background-color: var(--secondary);
 }
 
 
 .can-eat {
   height:100vh;
-  background-color: rgb(55, 107, 3);
+  background-color: rgba(94, 133, 4, 0.849);
 }
 
 .cant-eat {
   height:100vh;
-  background-color: rgba(185, 9, 9, 0.816);
+  background-color: rgba(219, 55, 30, 0.854);
 }
 
 .compliance-result {
   text-align: center;
-  color: #15151a; 
+  color: var(--text); 
   font-size: 7rem;
   font-weight: bold;
 }
