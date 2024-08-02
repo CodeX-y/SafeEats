@@ -8,7 +8,7 @@
 ## Contribution
 
 ## ERD
-![Uploading Screenshot 2024-08-02 at 5.28.18 PM.png…]()
+<img width="584" alt="Screenshot 2024-08-02 at 5 30 57 PM" src="https://github.com/user-attachments/assets/a7a127fc-d498-49f3-badb-9a7b31225ac3">
 
 ## FAQ
 
