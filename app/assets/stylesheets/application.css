@@ -1,15 +1,83 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+.title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700; /* Bold */
+  color: #2D2717; /* Oil color from your palette */
+  text-align: center;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.prompt {
+  font-size: 3rem;
+}
+
+.hero-section {
+  background: url('https://via.placeholder.com/1920x600') no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.hero-section p {
+  font-size: 1.25rem;
+}
+
+/* Background Colors */
+.bg-ash {
+  background-color: #c8c0b5;
+}
+
+.bg-oil {
+  background-color: #2D2717;
+}
+
+/* Text Colors */
+.text-oil {
+  color: #2D2717;
+}
+
+.text-marigold {
+  color: #BE8228;
+}
+
+/* Button Colors */
+.btn-marigold {
+  background-color: #BE8228;
+  border-color: #BE8228;
+}
+
+.btn-marigold:hover {
+  background-color: #943A21;
+  border-color: #943A21;
+  color: #f7efe5;
+}
+
+/* Card Borders */
+.card {
+  border: 1px solid #943A21;
+}
+
+
+.can-eat {
+  height:100vh;
+  background-color: rgb(55, 107, 3);
+}
+
+.cant-eat {
+  height:100vh;
+  background-color: rgba(185, 9, 9, 0.816);
+}
+
+.compliance-result {
+  text-align: center;
+  color: #15151a; 
+  font-size: 7rem;
+  font-weight: bold;
+}

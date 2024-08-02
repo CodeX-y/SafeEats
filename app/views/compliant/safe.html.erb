@@ -1,24 +1,22 @@
 <% if @ingredient %>
-  <% user_diet = current_user %>
-  <% if user_diet %>
-    <% if user_diet.diet_id == @vegan_diet_id %>
-      <% if @ingredient.diet_id == @vegan_diet_id %>
-        <%= render "compliant/can_eat" %>
-      <% else %>
-        <%= render "compliant/can_eat" %>
-      <% end %>
-    <% elsif user_diet.diet_id == @vegetarian_diet_id %>
-      <% if @ingredient.diet_id == @vegan_diet_id || @ingredient.diet_id == @vegetarian_diet_id %>
-        <%= render "compliant/can_eat" %>
-      <% else %>
-       <%= render "compliant/cant_eat" %>
-      <% end %>
+  <% user = current_user %>
+
+  <% if user.diet_id == @vegan_diet_id %>
+    <% if @ingredient.diet_id == @vegan_diet_id %>
+      <%= render "compliant/can_eat" %>
+    <% else %>
+      <%= render "compliant/cant_eat" %>
+    <% end %>
+  <% elsif user.diet_id == @vegetarian_diet_id %>
+    <% if @ingredient.diet_id == @vegan_diet_id || @ingredient.diet_id == @vegetarian_diet_id %>
+      <%= render "compliant/can_eat" %>
     <% else %>
       <%= render "compliant/cant_eat" %>
     <% end %>
   <% else %>
-    <p>No diet found for user</p>
+    <%= render "compliant/cant_eat" %>
   <% end %>
+
 <% else %>
   <%= render "compliant/cant_eat" %>
 <% end %>

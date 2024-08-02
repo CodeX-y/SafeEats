@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   
-  root "homepage#edit"
+  root "landing_page#landing"
   
-  resources :diet_types
   resources :homepage, only: [:edit, :update]
+  resources :diet_types
   resources :ingredients
   
   get "/check_ingredient" => "compliance#check"

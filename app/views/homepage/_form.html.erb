@@ -1,19 +1,17 @@
-<h1>Select a Diet</h1>
-
 <%= form_with(url: url_for({ :controller => "homepage", :action => "update", :id => current_user.id }), method: :patch) do %>
-
   <%= hidden_field_tag :user_id, current_user.id %>
 
-  <div>
-    <label for="diet_id">Diet Type:</label>
-    <select name="diet_id" id="diet_id">
+  <div class="mb-3">
+    <label for="diet_id" class="form-label">Select a Diet</label>
+    <select name="diet_id" id="diet_id" class="form-select">
+      <option value="">Select a Diet</option>
       <% @diet_types.each do |diet_type| %>
         <option value="<%= diet_type.id %>" <%= 'selected' if diet_type.id == current_user.diet_id %>><%= diet_type.name %></option>
       <% end %>
     </select>
   </div>
 
-  <div>
-    <input type="submit" value="Submit">
+  <div class="d-grid">
+    <%= submit_tag "Submit", class: "btn btn-marigold" %>
   </div>
 <% end %>

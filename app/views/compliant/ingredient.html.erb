@@ -1,6 +1,21 @@
-<%= form_with url: "/safe", method: :get do |form| %>
-  <div>
-    <%= form.label :ingredient  %>
-    <%= form.text_field :ingredient %>
+<h1 class="title">Scan it, Eat it, Love it!</h1>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm border-light">
+        <div class="card-body">
+          <%= form_with url: "/safe", method: :get do |form| %>
+            <div class="mb-3">
+              <%= form.label :ingredient, class: "form-label" %>
+              <%= form.text_field :ingredient, class: "form-control" %>
+            </div>
+            <div class="text-center">
+              <%= form.submit "Submit", class: "btn btn-marigold" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>
