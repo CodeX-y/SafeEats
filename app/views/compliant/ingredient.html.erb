@@ -5,10 +5,10 @@
     <div class="col-md-6">
       <div class="card shadow-sm border-light">
         <div class="card-body">
-          <%= form_with url: "/safe", method: :get do |form| %>
+          <%= form_with url: safe_path, method: :get do |form| %>
             <div class="mb-3">
-              <%= form.label :ingredient, class: "pb-3 fs-3" %>
-              <%= form.text_field :ingredient, class: "form-control" %>
+              <%= form.label :ingredients, "Enter ingredients", class: "pb-3 fs-3" %>
+              <%= form.text_field :ingredients, class: "form-control", placeholder: "e.g. sugar, salt, flour" %>
             </div>
             <div class="text-center">
               <%= form.submit "Submit", class: "btn btn-marigold" %>

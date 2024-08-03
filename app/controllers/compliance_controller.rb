@@ -1,27 +1,63 @@
 class ComplianceController < ApplicationController
+  before_action :set_diet_ids, only: [:check, :safe]
+
   def check
-    render "compliant/ingredient"
+    ingredients_param = params[:ingredients]
+    if ingredients_param.present?
+      @ingredients = ingredients_param.split(',').map(&:strip)
+
+      render "compliant/ingredient"
+    else
+      # TODO: this line is causing an issue
+      # redirect_to check_ingredient_path, alert: "Please add in your ingredients before proceeding."
+      render "compliant/ingredient"
+    end
   end
 
   def safe
-    @ingredient_name = params["ingredient"]
+    ingredients_param = params[:ingredients]
+    @ingredients = ingredients_param.present? ? ingredients_param.split(',').map(&:strip) : []
 
-    unless @ingredient_name == ""
-      @ingredient = Ingredient.where("LOWER(name) = ?", @ingredient_name.downcase).first
-
-      vegan_diet = DietType.where('LOWER(name) = ?', 'vegan').first
-      vegetarian_diet = DietType.where('LOWER(name) = ?', 'vegetarian').first
-      halal_diet = DietType.where('LOWER(name) = ?', 'halal').first
-      kosher_diet = DietType.where('LOWER(name) = ?', 'kosher').first
-
-      @vegan_diet_id = vegan_diet ? vegan_diet.id : nil
-      @vegetarian_diet_id = vegetarian_diet ? vegetarian_diet.id : nil
-      @halal_diet_id = halal_diet ? halal_diet.id : nil
-      @kosher_diet_id = kosher_diet ? kosher_diet.id : nil
-
-      render "compliant/safe"
+    if @ingredients.empty?
+      redirect_to check_ingredient_path, alert: "Please enter ingredients before proceeding."
     else
-      redirect_to check_ingredient_path, alert: "Please select an ingredient before proceeding."
+      @compliant = all_ingredients_compliant?(@ingredients)
+      if @compliant
+        render "compliant/can_eat"
+      else
+        render "compliant/cant_eat"
+      end
+    end
+  end
+
+  private
+
+  def set_diet_ids
+    vegan_diet = DietType.find_by('LOWER(name) = ?', 'vegan')
+    vegetarian_diet = DietType.find_by('LOWER(name) = ?', 'vegetarian')
+    halal_diet = DietType.find_by('LOWER(name) = ?', 'halal')
+    kosher_diet = DietType.find_by('LOWER(name) = ?', 'kosher')
+
+    @vegan_diet_id = vegan_diet&.id
+    @vegetarian_diet_id = vegetarian_diet&.id
+    @halal_diet_id = halal_diet&.id
+    @kosher_diet_id = kosher_diet&.id
+  end
+
+  def all_ingredients_compliant?(ingredients)
+    user = current_user
+    
+    ingredients.all? do |ingredient_name|
+      ingredient = Ingredient.find_by('LOWER(name) = ?', ingredient_name.downcase)
+      return false unless ingredient
+
+      if user.diet_id == @vegan_diet_id
+        ingredient.diet_id == @vegan_diet_id
+      elsif user.diet_id == @vegetarian_diet_id
+        ingredient.diet_id == @vegan_diet_id || ingredient.diet_id == @vegetarian_diet_id
+      else
+        false
+      end
     end
   end
 end

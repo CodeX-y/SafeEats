@@ -1,4 +1,6 @@
 class SelectDietController < ApplicationController
+  # before_action only: [:edit, :update]
+  
   def edit
     @diet_types = DietType.all
     render "select_diet/edit"
