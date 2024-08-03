@@ -1,0 +1,23 @@
+{
+  "name": "safeeats",
+  "version": "1.0.0",
+  "description": "A web application that scans ingredient lists to determine if a food product is suitable for vegans, vegetarians, halal, kosher, or people with food allergies.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeX-y/SafeEats.git"
+  },
+  "author": "Yusra Ahmed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodeX-y/SafeEats/issues"
+  },
+  "homepage": "https://github.com/CodeX-y/SafeEats#readme"
+}
