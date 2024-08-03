@@ -1,8 +1,8 @@
-<%= form_with(url: url_for({ :controller => "homepage", :action => "update", :id => current_user.id }), method: :patch) do %>
+<%= form_with(url: url_for({ :controller => "select_diet", :action => "update", :id => current_user.id }), method: :patch) do %>
   <%= hidden_field_tag :user_id, current_user.id %>
 
   <div class="mb-3">
-    <label for="diet_id" class="form-label">Select a Diet</label>
+    <label for="diet_id" class= "pb-3 fs-3">Select a Diet</label>
     <select name="diet_id" id="diet_id" class="form-select">
       <option value="">Select a Diet</option>
       <% @diet_types.each do |diet_type| %>
@@ -11,7 +11,7 @@
     </select>
   </div>
 
-  <div class="d-grid">
+  <div class= "text-center">
     <%= submit_tag "Submit", class: "btn btn-marigold" %>
   </div>
 <% end %>
