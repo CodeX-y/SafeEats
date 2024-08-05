@@ -1,13 +1,18 @@
+require 'httparty'
+
 class IngredientComplianceService
-  def initialize(user, ingredients)
+  include HTTParty
+  base_uri 'https://world.openfoodfacts.net/api/v0'
+
+  def initialize(user, inputs)
     @user = user
-    @ingredients = ingredients
+    @inputs = inputs
     set_diet_ids
   end
 
   def call
-    @ingredients.all? do |ingredient_name|
-      ingredient = Ingredient.where('LOWER(name) = ?', ingredient_name.downcase).first
+    @inputs.all? do |input|
+      ingredient = input_is_barcode?(input) ? fetch_ingredient_by_barcode(input) : fetch_ingredient_by_name(input)
       compliant?(ingredient)
     end
   end
@@ -31,11 +36,37 @@ class IngredientComplianceService
 
     case @user.diet_id
     when @vegan_diet_id
-      ingredient.diet_id == @vegan_diet_id
+      ingredient['diet_id'] == @vegan_diet_id
     when @vegetarian_diet_id
-      [@vegan_diet_id, @vegetarian_diet_id].include?(ingredient.diet_id)
+      [@vegan_diet_id, @vegetarian_diet_id].include?(ingredient['diet_id'])
     else
       false
     end
+  end
+
+  def input_is_barcode?(input)
+    input.match?(/^\d+$/)
+  end
+
+  def fetch_ingredient_by_barcode(barcode)
+    response = self.class.get("/product/#{barcode}.json")
+    if response.success?
+      response.parsed_response['product']
+    else
+      nil
+    end
+  rescue SocketError => e
+    puts "Network error: #{e.message}"
+    nil
+  rescue HTTParty::Error => e
+    puts "HTTP error: #{e.message}"
+    nil
+  rescue StandardError => e
+    puts "General error: #{e.message}"
+    nil
+  end
+
+  def fetch_ingredient_by_name(name)
+    Ingredient.where('LOWER(name) = ?', name.downcase).first
   end
 end
