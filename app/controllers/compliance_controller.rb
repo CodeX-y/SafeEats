@@ -1,7 +1,7 @@
 # require_dependency 'services/ingredient_compliance_service'
 
 class ComplianceController < ApplicationController
-  before_action only: [:check, :safe]
+  before_action :set_diet_ids, only: [:check, :safe]
 
   def check
     ingredients_param = params[:ingredients]

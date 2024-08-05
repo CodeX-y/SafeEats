@@ -24,7 +24,7 @@
 }
 
 .hero-section {
-  background: url('/assets/landing_page_bg.jpeg') no-repeat center center;
+  background: url('../images/landing_page_bg.jpeg') no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
   color: #fff;
