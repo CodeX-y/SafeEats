@@ -59,5 +59,4 @@ end
     def ingredient_params
       params.require(:ingredient).permit(:name, :vegetarian, :vegan)
     end
-  end
 end
