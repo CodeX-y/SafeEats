@@ -1,5 +1,5 @@
 class IngredientsController < ApplicationController
-  before_action :set_ingredient, only: %i[ show edit update destroy ]
+  before_action only: %i[ show edit update destroy ]
   require 'csv'
 
   def index
