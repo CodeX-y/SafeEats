@@ -16,19 +16,19 @@ class IngredientsController < ApplicationController
   def edit
   end
 
- def create
-  @ingredient = Ingredient.new(ingredient_params)
+  def create
+    @ingredient = Ingredient.new(ingredient_params)
 
-  respond_to do |format|
-    if @ingredient.save
-      format.html { redirect_to ingredient_url(@ingredient), notice: "Ingredient was successfully created." }
-      format.json { render :show, status: :created, location: @ingredient }
-    else
-      format.html { render :new, status: :unprocessable_entity }
-      format.json { render json: @ingredient.errors, status: :unprocessable_entity }
+    respond_to do |format|
+      if @ingredient.save
+        format.html { redirect_to ingredient_url(@ingredient), notice: "Ingredient was successfully created." }
+        format.json { render :show, status: :created, location: @ingredient }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @ingredient.errors, status: :unprocessable_entity }
+      end
     end
   end
-end
 
 def update
   respond_to do |format|
