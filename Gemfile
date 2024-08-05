@@ -45,6 +45,16 @@ group :development, :test do
   gem "rspec-rails", "~> 6.0.0"
 end
 
+group :rubocop do
+  gem "rubocop", ">= 1.25.1", require: false
+  gem "rubocop-minitest", require: false
+  gem "rubocop-packaging", require: false
+  gem "rubocop-performance", require: false
+  gem "rubocop-rails", require: false
+  gem "rubocop-md", require: false
+  gem "rubocop-rails-omakase", require: false
+end
+
 group :test do
   gem "capybara"
   gem "draft_matchers"
