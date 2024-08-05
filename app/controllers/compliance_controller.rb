@@ -4,16 +4,10 @@ class ComplianceController < ApplicationController
   before_action :set_diet_ids, only: [:check, :safe]
 
   def check
-    ingredients_param = params[:ingredients]
-    if ingredients_param.present?
-      @ingredients = ingredients_param.split(',').map(&:strip)
+    # ingredients_param = params[:ingredients]
+    # @ingredients = ingredients_param.split(',').map(&:strip)
 
-      render "compliant/ingredient"
-    else
-      # TODO: this line is causing an issue
-      # redirect_to check_ingredient_path, alert: "Please add in your ingredients before proceeding."
-      render "compliant/ingredient"
-    end
+    render "compliant/ingredient"
   end
 
   def safe
