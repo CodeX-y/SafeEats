@@ -26,7 +26,7 @@
 .hero-section {
   background: url('/assets/landing_page_bg.jpeg') no-repeat center center;
   background-size: cover;
-  background-attachment: fixed; /* Keeps the background fixed while scrolling */
+  background-attachment: fixed;
   color: #fff;
   padding: 190px 0;
   text-align: center;

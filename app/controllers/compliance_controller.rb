@@ -1,5 +1,7 @@
+# require_dependency 'services/ingredient_compliance_service'
+
 class ComplianceController < ApplicationController
-  before_action :set_diet_ids, only: [:check, :safe]
+  before_action only: [:check, :safe]
 
   def check
     ingredients_param = params[:ingredients]
@@ -29,6 +31,24 @@ class ComplianceController < ApplicationController
       end
     end
   end
+
+  # def safe
+  #   ingredients_param = params["ingredients"]
+  #   @ingredients = ingredients_param.present? ? ingredients_param.split(',').map(&:strip) : []
+
+  #   if @ingredients.empty?
+  #     redirect_to check_ingredient_path, { :alert => "Please enter ingredients before proceeding." }
+  #   else
+  #     service = IngredientComplianceService.new(current_user, @ingredients)
+  #     @compliant = service.call
+
+  #     if @compliant
+  #       render({ :template => "compliant/can_eat" })
+  #     else
+  #       render({ :template => "compliant/cant_eat" })
+  #     end
+  #   end
+  # end
 
   private
 

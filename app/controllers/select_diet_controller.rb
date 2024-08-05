@@ -10,7 +10,7 @@ class SelectDietController < ApplicationController
     
     if current_user.save
       if current_user.instance_variable_get(:@diet_unsupported)
-        redirect_to edit_select_diet_path, notice: "Halal and Kosher diets are not supported. Please select a different diet."
+        redirect_to edit_select_diet_path, alert: "Please select a diet. Halal and Kosher diets are not supported."
       else
         redirect_to check_ingredient_path
       end
