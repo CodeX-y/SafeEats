@@ -4,9 +4,6 @@ class ComplianceController < ApplicationController
   before_action :set_diet_ids, only: [:check, :safe]
 
   def check
-    # ingredients_param = params[:ingredients]
-    # @ingredients = ingredients_param.split(',').map(&:strip)
-
     render "compliant/ingredient"
   end
 
