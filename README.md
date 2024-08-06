@@ -121,7 +121,7 @@ The Open Food Facts API requires an API key for authentication, which can be gen
 
 
 ### Authentication
-The Open Food Facts API does not require an API key for public access. If authentication were needed, it would be typically included in the request headers or as a query parameter.
+The Open Food Facts API requires an API key for public access. In this repo, the key is named OPEN_FOODS_API. An API key can be made by making an account of Open Food Facts and generating an API key.
 
 ### Endpoints
 
