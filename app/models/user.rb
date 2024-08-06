@@ -26,10 +26,8 @@ class User < ApplicationRecord
   private
 
   def check_diet_id
-    unsupported_diets = DietType.where('LOWER(name) IN (?)', ['halal', 'kosher'].map(&:downcase)).pluck(:id)
-    
-    if diet_id.nil? || unsupported_diets.include?(diet_id)
-      @diet_unsupported = true
+    if diet_id.nil?
+      @diet_unselected = true
     end
   end
 end

@@ -71,6 +71,10 @@ class IngredientComplianceService
         tags_or_ingredient['diet_id'] == @vegan_diet_id
       when @vegetarian_diet_id
         [@vegan_diet_id, @vegetarian_diet_id].include?(tags_or_ingredient['diet_id'])
+      when @halal_diet_id
+        [@vegan_diet_id, @vegetarian_diet_id, @halal_diet_id].include?(tags_or_ingredient['diet_id'])
+      when @kosher_diet_id
+        [@vegan_diet_id, @vegetarian_diet_id, @kosher_diet_id].include?(tags_or_ingredient['diet_id'])
       else
         false
       end
