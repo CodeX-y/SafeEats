@@ -109,3 +109,61 @@ If you have any additional questions, feel free to reach out or open an issue!
 ## Visual Aids
 
 ## API Documentation
+
+The `SafeEats` application leverages the Open Food Facts API to check the dietary compliance of food products based on barcodes or ingredient names. Below is a guide to the API interactions and how `SafeEats` utilizes the Open Food Facts API.
+
+### Base URL
+The base URL for the Open Food Facts API endpoints is:
+[](https://world.openfoodfacts.net/api/v0)
+
+### Authentication
+The Open Food Facts API requires an API key for authentication, which can be generated after signing up for an account on their website.
+
+
+### Authentication
+The Open Food Facts API does not require an API key for public access. If authentication were needed, it would be typically included in the request headers or as a query parameter.
+
+### Endpoints
+
+#### 1. Fetch Product by Barcode
+- **Endpoint**: `/product/{barcode}.json`
+- **Method**: `GET`
+- **Description**: Retrieves detailed information about a product using its barcode.
+
+**Request URL**:
+[](https://world.openfoodfacts.net/api/v0/product/{barcode}.json)
+
+**Response**:
+```json
+{
+  "code": "3017620422003",
+  "product": {
+    "name": "Product Name",
+    "ingredients_text": "Ingredients list...",
+    "ingredients_analysis_tags": ["en:vegan"],
+    "_keywords": ["vegan", "organic"],
+    // other product details
+  },
+  "status": 1,
+  "status_verbose": "product found"
+}
+```
+
+#### 2. Fetch Product by Barcode
+- **Endpoint**: `/product/{barcode}/ingredients_analysis.json`
+- **Method**: `GET`
+- **Description**: Retrieves ingredient analysis tags for a product.
+
+**Request URL**:
+[](https://world.openfoodfacts.net/api/v0/product/{barcode}/ingredients_analysis.json)
+
+**Response**:
+```json
+{
+  "ingredients_analysis_tags": ["en:vegan"]
+}
+```
+
+#### Request/Response Formats
+- **Requests**: All requests should be made using the HTTP GET method.
+- **Responses**: Responses will be in JSON format containing product details, keywords, and ingredient analysis tags.
