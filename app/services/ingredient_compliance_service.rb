@@ -22,8 +22,9 @@ class IngredientComplianceService
       if input_is_barcode?(input)
         product = fetch_product_by_barcode(input)
         if product
-          ingredients_tags = extract_ingredients_tags(product)
-          compliant?(ingredients_tags)
+          keywords = extract_keywords(product)
+          tags = extract_ingredients_tags(product)
+          compliant?(keywords + tags)
         else
           false
         end
@@ -50,21 +51,19 @@ class IngredientComplianceService
 
   def compliant?(tags_or_ingredient)
     if tags_or_ingredient.is_a?(Array)
-      # Handle API response with tags
       case @user.diet_id
       when @vegan_diet_id
-        tags_or_ingredient.any? { |tag| keyword_matches?(tag, :vegan) }
+        tags_or_ingredient.any? { |keyword| keyword_matches?(keyword, :vegan) }
       when @vegetarian_diet_id
-        tags_or_ingredient.any? { |tag| keyword_matches?(tag, :vegetarian) }
+        tags_or_ingredient.any? { |keyword| keyword_matches?(keyword, :vegetarian) }
       when @halal_diet_id
-        tags_or_ingredient.any? { |tag| keyword_matches?(tag, :halal) }
+        tags_or_ingredient.any? { |keyword| keyword_matches?(keyword, :halal) }
       when @kosher_diet_id
-        tags_or_ingredient.any? { |tag| keyword_matches?(tag, :kosher) }
+        tags_or_ingredient.any? { |keyword| keyword_matches?(keyword, :kosher) }
       else
         false
       end
     else
-      # Handle individual ingredient
       return false unless tags_or_ingredient
 
       case @user.diet_id
@@ -79,7 +78,8 @@ class IngredientComplianceService
   end
 
   def keyword_matches?(tag, diet_type)
-    DIETARY_KEYWORDS[diet_type].any? { |keyword| tag.include?(keyword) }
+    normalized_tag = tag.gsub(/^en:/, '')
+    DIETARY_KEYWORDS[diet_type].any? { |keyword| normalized_tag == keyword }
   end
 
   def input_is_barcode?(input)
@@ -90,7 +90,6 @@ class IngredientComplianceService
     response = self.class.get("/product/#{barcode}.json")
     if response.success? && response.parsed_response['status'] == 1
       product = response.parsed_response['product']
-      puts "Fetched product: #{product}"
       product
     else
       puts "Failed to fetch product for barcode: #{barcode}"
@@ -108,11 +107,11 @@ class IngredientComplianceService
   end
 
   def extract_ingredients_tags(product)
-    if product
-      product['ingredients_tags'] || []
-    else
-      []
-    end
+    product['ingredients_analysis_tags'] || []
+  end
+
+  def extract_keywords(product)
+    product['_keywords'] || []
   end
 
   def fetch_ingredient_by_name(name)
