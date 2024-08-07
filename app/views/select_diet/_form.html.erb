@@ -1,7 +1,7 @@
 <%= form_with(url: url_for({ :controller => "select_diet", :action => "update", :id => current_user.id }), method: :patch) do %>
 
   <div class="mb-3">
-    <label for="diet_id" class= "pb-3 fs-3">Select a Diet</label>
+    <label for="diet_id" class="pb-3 fs-3">Select a Diet</label>
     <select name="diet_id" id="diet_id" class="form-select">
       <option value="">Select a Diet</option>
       <% @diet_types.each do |diet_type| %>
@@ -10,7 +10,7 @@
     </select>
   </div>
 
-  <div class= "text-center">
+  <div class="text-center">
     <%= submit_tag "Submit", class: "btn btn-marigold" %>
   </div>
 <% end %>
