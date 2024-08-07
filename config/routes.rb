@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   resources :diet_types
   resources :ingredients
   
-  get "/check_ingredient" => "compliance#check"
-  get "/safe" => "compliance#safe"
+  get "/food" => "compliance#food"
+  get "/compliance" => "compliance#check_compliance"
 end

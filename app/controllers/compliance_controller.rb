@@ -1,11 +1,11 @@
 class ComplianceController < ApplicationController
   before_action only: [:check, :safe]
 
-  def check
-    render "compliant/ingredient"
+  def food
+    render "compliant/food"
   end
 
-  def safe
+  def check_compliance
     ingredients_param = params["ingredients"]
     @ingredients = ingredients_param.present? ? ingredients_param.split(',').map(&:strip) : []
 

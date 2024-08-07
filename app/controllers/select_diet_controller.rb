@@ -12,7 +12,7 @@ class SelectDietController < ApplicationController
       if current_user.instance_variable_get(:@diet_unselected)
         redirect_to edit_select_diet_path, alert: "Please select a diet before proceeding."
       else
-        redirect_to check_ingredient_path
+        redirect_to food_path
       end
     else
       @diet_types = DietType.all
