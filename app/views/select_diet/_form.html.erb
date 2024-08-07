@@ -1,5 +1,4 @@
 <%= form_with(url: url_for({ :controller => "select_diet", :action => "update", :id => current_user.id }), method: :patch) do %>
-  <%= hidden_field_tag :user_id, current_user.id %>
 
   <div class="mb-3">
     <label for="diet_id" class= "pb-3 fs-3">Select a Diet</label>

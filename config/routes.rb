@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   root "landing_page#landing"
   
-  resources :select_diet, only: [:edit, :update]
+  resources :select_diet, only: [:edit, :update], param: :username
   resources :diet_types
   resources :ingredients
   

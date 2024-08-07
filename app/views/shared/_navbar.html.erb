@@ -8,7 +8,7 @@
       <% if user_signed_in? %>
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <%= link_to "Diet", edit_select_diet_path(current_user), class: "nav-link" %>
+            <%= link_to "Diet", edit_select_diet_path(current_user.username), class: "nav-link" %>
           </li>
         </ul>
         <ul class="navbar-nav me-center">
