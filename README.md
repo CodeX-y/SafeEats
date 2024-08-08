@@ -107,63 +107,17 @@ SafeEats is primarily designed for development and testing. The goal is to devel
 If you have any additional questions, feel free to reach out or open an issue!
 
 ## Visual Aids
+### First Page:
+<img width="664" alt="Screenshot 2024-08-08 at 10 38 08 AM" src="https://github.com/user-attachments/assets/f371ab67-5f80-4636-a2b5-2021da2a684a">
 
-## API Documentation
+### Second Page:
+<img width="664" alt="Screenshot 2024-08-08 at 10 39 41 AM" src="https://github.com/user-attachments/assets/06f85a2b-58df-4107-a1d2-00f574fc6818">
 
-The `SafeEats` application leverages the Open Food Facts API to check the dietary compliance of food products based on barcodes or ingredient names. Below is a guide to the API interactions and how `SafeEats` utilizes the Open Food Facts API.
+### Results:
+<img width="664" alt="Screenshot 2024-08-08 at 10 40 09 AM" src="https://github.com/user-attachments/assets/e1c69006-ae7a-4927-bcb4-8c0ec450fad1">
 
-### Base URL
-The base URL for the Open Food Facts API endpoints is:
-[](https://world.openfoodfacts.net/api/v0)
+**OR**
 
-### Authentication
-The Open Food Facts API requires an API key for authentication, which can be generated after signing up for an account on their website.
+<img width="664" alt="Screenshot 2024-08-08 at 10 40 30 AM" src="https://github.com/user-attachments/assets/a367a136-00dc-4578-8c31-3c2eac5288f4">
 
 
-### Authentication
-The Open Food Facts API requires an API key for public access. In this repo, the key is named OPEN_FOODS_API. An API key can be made by making an account of Open Food Facts and generating an API key.
-
-### Endpoints
-
-#### 1. Fetch Product by Barcode
-- **Endpoint**: `/product/{barcode}.json`
-- **Method**: `GET`
-- **Description**: Retrieves detailed information about a product using its barcode.
-
-**Request URL**:
-[](https://world.openfoodfacts.net/api/v0/product/{barcode}.json)
-
-**Response**:
-```json
-{
-  "code": "3017620422003",
-  "product": {
-    "name": "Product Name",
-    "ingredients_text": "Ingredients list...",
-    "ingredients_analysis_tags": ["en:vegan"],
-    "_keywords": ["vegan", "organic"],
-    // other product details
-  },
-  "status": 1,
-  "status_verbose": "product found"
-}
-```
-
-#### 2. Fetch Product by Barcode
-- **Endpoint**: `/product/{barcode}/ingredients_analysis.json`
-- **Method**: `GET`
-- **Description**: Retrieves ingredient analysis tags for a product.
-
-**Request URL**:
-[](https://world.openfoodfacts.net/api/v0/product/{barcode}/ingredients_analysis.json)
-
-**Response**:
-```json
-{
-  "ingredients_analysis_tags": ["en:vegan"]
-}
-```
-
-#### Request/Response Formats
-- **Requests**: All requests should be made using the HTTP GET method.
-- **Responses**: Responses will be in JSON format containing product details, keywords, and ingredient analysis tags.
