@@ -1,4 +1,4 @@
-require 'csv'
+require "csv"
 
 namespace :db do
   desc "Fill the ingredients table from ingredients.csv"

@@ -1,6 +1,9 @@
-class UsersController < ApplicationController
-  # include UserConcern
-  before_action :set_user
+module UserConcern
+  extend ActiveSupport::Concern
+
+  included do
+    before_action :set_user
+  end
 
   private
 

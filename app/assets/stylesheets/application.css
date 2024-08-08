@@ -24,10 +24,10 @@
 }
 
 .hero-section {
-  background: url('landing_page_bg.jpeg') no-repeat center center;
+  background: url("landing_page_bg.png") no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  color: #fff;
+  color: #fefefe;
   padding: 190px 0;
   text-align: center;
 }
@@ -41,32 +41,32 @@
   font-size: 1.25rem;
 }
 
-.bg-ash {
+.bg-cream {
   background-color: var(--secondary);
 }
 
-.bg-oil {
+.bg-choco {
   background-color: var(--text);
 }
 
-.text-oil {
+.text-cream {
   color: var(--secondary);
 }
 
-.text-text {
+.text-choco {
   color: var(--text);
 }
 
-.text-marigold {
+.text-sand {
   color: var(--primary);
 }
 
-.btn-marigold {
+.btn-sand {
   background-color: var(--primary);
   border-color: var(--primary);
 }
 
-.btn-marigold:hover {
+.btn-sand:hover {
   background-color: var(--accent);
   border-color: var(--accent);
   color: var(--background);
@@ -83,19 +83,34 @@
   object-fit: cover;
 }
 
+.compliance-result {
+  text-align: center;
+  color: var(--text);
+  font-size: 5rem;
+  font-weight: bold;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
 .can-eat {
-  height:100vh;
+  min-height: 100vh; /* Use min-height for flexibility */
   background-color: rgba(94, 133, 4, 0.849);
+  display: flex;
+  align-items: top;
+  justify-content: center;
 }
 
 .cant-eat {
-  height:100vh;
+  min-height: 100vh; /* Use min-height for flexibility */
   background-color: rgba(219, 55, 30, 0.854);
+  display: flex;
+  align-items: top;
+  justify-content: center;
 }
 
-.compliance-result {
-  text-align: center;
-  color: var(--text); 
-  font-size: 7rem;
-  font-weight: bold;
+@media (max-width: 767px) {
+  .compliance-result {
+    font-size: 3rem;
+    padding: 0.5rem;
+  }
 }

@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, param: :username
   
   root "landing_page#landing"
   
-  resources :select_diet, only: [:edit, :update]
+  resources :select_diet, only: [:edit, :update], param: :username
   resources :diet_types
   resources :ingredients
   
-  get "/check_ingredient" => "compliance#check"
-  get "/safe" => "compliance#safe"
+  get "/food" => "compliance#food"
+  get "/compliance" => "compliance#check_compliance"
 end

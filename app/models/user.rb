@@ -23,6 +23,8 @@ class User < ApplicationRecord
   belongs_to :diet, required: false, class_name: "DietType", foreign_key: "diet_id"
   before_update :check_diet_id
 
+  validates :username, presence: true, uniqueness: true
+
   private
 
   def check_diet_id

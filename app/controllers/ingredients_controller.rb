@@ -1,6 +1,6 @@
 class IngredientsController < ApplicationController
   before_action only: %i[ show edit update destroy ]
-  require 'csv'
+  require "csv"
 
   def index
     @ingredients = Ingredient.all
