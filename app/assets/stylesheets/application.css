@@ -24,10 +24,10 @@
 }
 
 .hero-section {
-  background: url('landing_page_bg.jpeg') no-repeat center center;
+  background: url("landing_page_bg.png") no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  color: #fff;
+  color: #fefefe;
   padding: 190px 0;
   text-align: center;
 }
@@ -41,32 +41,32 @@
   font-size: 1.25rem;
 }
 
-.bg-ash {
+.bg-cream {
   background-color: var(--secondary);
 }
 
-.bg-oil {
+.bg-choco {
   background-color: var(--text);
 }
 
-.text-oil {
+.text-cream {
   color: var(--secondary);
 }
 
-.text-text {
+.text-choco {
   color: var(--text);
 }
 
-.text-marigold {
+.text-sand {
   color: var(--primary);
 }
 
-.btn-marigold {
+.btn-sand {
   background-color: var(--primary);
   border-color: var(--primary);
 }
 
-.btn-marigold:hover {
+.btn-sand:hover {
   background-color: var(--accent);
   border-color: var(--accent);
   color: var(--background);
