@@ -10,7 +10,7 @@ class ComplianceController < ApplicationController
     @ingredients = ingredients_param.present? ? ingredients_param.split(',').map(&:strip) : []
 
     if @ingredients.empty?
-      redirect_to check_ingredient_path, { :alert => "Please enter ingredients before proceeding." }
+      redirect_to food_path, { :alert => "Please enter ingredients before proceeding." }
     else
       service = IngredientComplianceService.new(current_user, @ingredients)
       @compliant = service.call
