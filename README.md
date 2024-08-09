@@ -107,17 +107,15 @@ SafeEats is primarily designed for development and testing. The goal is to devel
 If you have any additional questions, feel free to reach out or open an issue!
 
 ## Visual Aids
-### First Page:
+### First Page
 <img width="664" alt="Screenshot 2024-08-08 at 10 38 08 AM" src="https://github.com/user-attachments/assets/f371ab67-5f80-4636-a2b5-2021da2a684a">
 
-### Second Page:
+### Second Page
 <img width="664" alt="Screenshot 2024-08-08 at 10 39 41 AM" src="https://github.com/user-attachments/assets/06f85a2b-58df-4107-a1d2-00f574fc6818">
 
-### Results:
+### Results
 <img width="664" alt="Screenshot 2024-08-08 at 10 40 09 AM" src="https://github.com/user-attachments/assets/e1c69006-ae7a-4927-bcb4-8c0ec450fad1">
 
 **OR**
 
 <img width="664" alt="Screenshot 2024-08-08 at 10 40 30 AM" src="https://github.com/user-attachments/assets/a367a136-00dc-4578-8c31-3c2eac5288f4">
-
-
