@@ -1,12 +1,12 @@
 diet_types = [
-  { name: 'Vegan' },
-  { name: 'Vegetarian' },
-  { name: 'Halal' },
-  { name: 'Kosher' }
+  { name: "Vegan" },
+  { name: "Vegetarian" },
+  { name: "Halal" },
+  { name: "Kosher" }
 ]
 
 diet_types.each do |diet_type|
-  unless DietType.where('LOWER(name) = ?', diet_type[:name].downcase).exists?
+  unless DietType.where("LOWER(name) = ?", diet_type[:name].downcase).exists?
     DietType.create(diet_type)
     puts "Created DietType: #{diet_type[:name]}"
   else
@@ -17,5 +17,5 @@ end
 Rake::Task.clear
 Rails.application.load_tasks
 
-Rake::Task['db:slurp'].invoke
+Rake::Task["db:slurp"].invoke
 puts "Ran the slurp task"

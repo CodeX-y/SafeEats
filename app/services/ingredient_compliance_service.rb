@@ -1,8 +1,8 @@
-require 'httparty'
+require "httparty"
 
 class IngredientComplianceService
   include HTTParty
-  base_uri 'https://world.openfoodfacts.net/api/v0'
+  base_uri "https://world.openfoodfacts.net/api/v0"
 
   DIETARY_KEYWORDS = {
     vegan: ["vegan"],
@@ -38,10 +38,10 @@ class IngredientComplianceService
   private
 
   def set_diet_ids
-    vegan_diet = DietType.find_by('LOWER(name) = ?', 'vegan')
-    vegetarian_diet = DietType.find_by('LOWER(name) = ?', 'vegetarian')
-    halal_diet = DietType.find_by('LOWER(name) = ?', 'halal')
-    kosher_diet = DietType.find_by('LOWER(name) = ?', 'kosher')
+    vegan_diet = DietType.find_by("LOWER(name) = ?", "vegan")
+    vegetarian_diet = DietType.find_by("LOWER(name) = ?", "vegetarian")
+    halal_diet = DietType.find_by("LOWER(name) = ?", "halal")
+    kosher_diet = DietType.find_by("LOWER(name) = ?", "kosher")
 
     @vegan_diet_id = vegan_diet&.id
     @vegetarian_diet_id = vegetarian_diet&.id
@@ -68,13 +68,13 @@ class IngredientComplianceService
 
       case @user.diet_id
       when @vegan_diet_id
-        tags_or_ingredient['diet_id'] == @vegan_diet_id
+        tags_or_ingredient["diet_id"] == @vegan_diet_id
       when @vegetarian_diet_id
-        [@vegan_diet_id, @vegetarian_diet_id].include?(tags_or_ingredient['diet_id'])
+        [@vegan_diet_id, @vegetarian_diet_id].include?(tags_or_ingredient["diet_id"])
       when @halal_diet_id
-        [@vegan_diet_id, @vegetarian_diet_id, @halal_diet_id].include?(tags_or_ingredient['diet_id'])
+        [@vegan_diet_id, @vegetarian_diet_id, @halal_diet_id].include?(tags_or_ingredient["diet_id"])
       when @kosher_diet_id
-        [@vegan_diet_id, @vegetarian_diet_id, @kosher_diet_id].include?(tags_or_ingredient['diet_id'])
+        [@vegan_diet_id, @vegetarian_diet_id, @kosher_diet_id].include?(tags_or_ingredient["diet_id"])
       else
         false
       end
@@ -82,7 +82,7 @@ class IngredientComplianceService
   end
 
   def keyword_matches?(tag, diet_type)
-    normalized_tag = tag.gsub(/^en:/, '')
+    normalized_tag = tag.gsub(/^en:/, "")
     DIETARY_KEYWORDS[diet_type].any? { |keyword| normalized_tag == keyword }
   end
 
@@ -92,8 +92,8 @@ class IngredientComplianceService
 
   def fetch_product_by_barcode(barcode)
     response = self.class.get("/product/#{barcode}.json")
-    if response.success? && response.parsed_response['status'] == 1
-      product = response.parsed_response['product']
+    if response.success? && response.parsed_response["status"] == 1
+      product = response.parsed_response["product"]
       product
     else
       puts "Failed to fetch product for barcode: #{barcode}"
@@ -111,15 +111,15 @@ class IngredientComplianceService
   end
 
   def extract_ingredients_tags(product)
-    product['ingredients_analysis_tags'] || []
+    product["ingredients_analysis_tags"] || []
   end
 
   def extract_keywords(product)
-    product['_keywords'] || []
+    product["_keywords"] || []
   end
 
   def fetch_ingredient_by_name(name)
-    ingredient = Ingredient.where('LOWER(name) = ?', name.downcase).first
+    ingredient = Ingredient.where("LOWER(name) = ?", name.downcase).first
     if ingredient
       puts "Fetched ingredient: #{ingredient}"
     else
