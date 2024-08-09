@@ -7,7 +7,7 @@
 }
 
 .title {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 4rem;
   font-weight: 700;
   padding-top: 5rem;
@@ -93,16 +93,16 @@
 }
 
 .can-eat {
-  min-height: 100vh; /* Use min-height for flexibility */
-  background-color: rgba(94, 133, 4, 0.849);
+  min-height: 100vh;
+  background-color: rgb(94 133 4 / 84.9%);
   display: flex;
   align-items: top;
   justify-content: center;
 }
 
 .cant-eat {
-  min-height: 100vh; /* Use min-height for flexibility */
-  background-color: rgba(219, 55, 30, 0.854);
+  min-height: 100vh;
+  background-color: rgba(219 55 30 / 85.4%);
   display: flex;
   align-items: top;
   justify-content: center;
