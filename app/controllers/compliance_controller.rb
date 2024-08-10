@@ -2,7 +2,7 @@ class ComplianceController < ApplicationController
   before_action only: [:check, :safe]
 
   def food
-    render "compliant/food"
+    # render "compliant/food"
   end
 
   def check_compliance
@@ -12,13 +12,13 @@ class ComplianceController < ApplicationController
     if @ingredients.empty?
       redirect_to food_path, { :alert => "Please enter ingredients before proceeding." }
     else
-      service = IngredientComplianceService.new(current_user, @ingredients)
+      service = FoodComplianceService.new(current_user, @ingredients)
       @compliant = service.call
 
       if @compliant
-        render "compliant/can_eat"
+        render "compliance/can_eat"
       else
-        render "compliant/cant_eat"
+        render "compliance/cant_eat"
       end
     end
   end
