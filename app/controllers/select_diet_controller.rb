@@ -1,6 +1,4 @@
 class SelectDietController < ApplicationController
-  # include UserConcern
-  
   def edit
     @diet_types = DietType.all
   end

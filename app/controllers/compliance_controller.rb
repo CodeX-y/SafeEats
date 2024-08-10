@@ -1,8 +1,10 @@
 class ComplianceController < ApplicationController
-  before_action only: [:check, :safe]
+  before_action :check_diet_id, only: [:food, :check_compliance]
 
   def food
-    # render "compliant/food"
+    if current_user.instance_variable_get(:@diet_unselected)
+      redirect_to edit_select_diet_path, alert: "Please select a diet before proceeding."
+    end
   end
 
   def check_compliance
@@ -20,6 +22,14 @@ class ComplianceController < ApplicationController
       else
         render "compliance/cant_eat"
       end
+    end
+  end
+
+  private
+
+  def check_diet_id
+    if current_user.diet_id.blank?
+      redirect_to edit_select_diet_path(current_user.username), alert: "Please select a diet type before choosing a meal."
     end
   end
 end
