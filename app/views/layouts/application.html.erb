@@ -8,6 +8,8 @@
 
     <%= render partial: "shared/cdn_assets" %>
 
+    <meta name="csrf-token" content="<%= form_authenticity_token %>">
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
     <%= javascript_importmap_tags %>

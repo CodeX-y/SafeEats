@@ -4,6 +4,8 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+/node_modules
+
 # Ignore bundler config.
 /.bundle
 
@@ -40,3 +42,10 @@ examples.txt
 # Un-ignore SQLite3 db
 !/db/*.sqlite3
 !/db/*.sqlite3-journal
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

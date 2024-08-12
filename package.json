@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/CodeX-y/SafeEats/issues"
   },
-  "homepage": "https://github.com/CodeX-y/SafeEats#readme"
+  "homepage": "https://github.com/CodeX-y/SafeEats#readme",
+  "dependencies": {
+    "@rails/webpacker": "5.4.4",
+    "@zxing/library": "^0.21.2",
+    "quagga": "^0.12.1"
+  },
+  "devDependencies": {}
 }

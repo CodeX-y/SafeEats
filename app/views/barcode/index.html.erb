@@ -1,0 +1,42 @@
+<h1>Scan Barcode</h1>
+<video id="video" width="640" height="480" autoplay></video>
+<canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/@zxing/library@latest"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const codeReader = new ZXing.BrowserMultiFormatReader();
+    const canvas = document.getElementById('canvas');
+    const video = document.getElementById('video');
+
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(function (stream) {
+        video.srcObject = stream;
+      })
+      .catch(function (error) {
+        console.error('Error accessing the webcam:', error);
+      });
+
+    codeReader
+      .decodeFromVideoDevice(null, 'video', (result, error) => {
+        if (result) {
+          console.log('UPC Code:', result.text);
+          // Send the UPC code to the server
+          fetch('/barcode', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({ upc: result.text })
+          })
+          .then(response => response.json())
+          .then(data => console.log(data))
+          .catch(err => console.error('Fetch Error:', err));
+        }
+        if (error) {
+          console.error('Scan Error:', error);
+        }
+      })
+      .catch(err => console.error('Initialization Error:', err));
+  });
+</script>

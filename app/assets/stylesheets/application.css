@@ -108,9 +108,30 @@
   justify-content: center;
 }
 
+#barcode-scanner canvas.drawingBuffer, #barcode-scanner video.drawingBuffer {
+  display: none;
+}
+
+#barcode-scanner canvas, #barcode-scanner video {
+  width: 100%;
+  height: auto;
+}
+
 @media (max-width: 767px) {
   .compliance-result {
     font-size: 3rem;
     padding: 0.5rem;
+  }
+
+  .card-group {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  .card {
+    min-width: 80%;
+    scroll-snap-align: start;
+    margin-right: 1rem;
   }
 }
