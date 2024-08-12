@@ -2,7 +2,10 @@
   <div class="container">
     <h1 class="display-4">SafeEats</h1>
     <p class="lead text-center">Discover if your food is safe for you in just a few clicks</p>
-    <a href="#demo" class="btn btn-sand btn-lg">Watch the Demo</a>
+    <div class="d-flex justify-content-center gap-3 mt-3">
+      <a href="#demo" class="btn btn-sand btn-lg">Watch the Demo</a>
+      <a href="<%= new_user_session_path %>" class="btn btn-sand btn-lg">Get Started</a>
+    </div>
   </div>
 </div>
 
@@ -53,6 +56,42 @@
     </div>
 </div>
 
+<div id="testimonials" class="container my-5 py-5">
+    <div class="row text-center mb-4">
+      <div class="col-md-12">
+        <h2 class="display-4 text-choco">What Our Users Are Saying</h2>
+        <p class="lead text-choco">Hear from people who have made SafeEats a part of their daily routine.</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card shadow-sm border-light h-100">
+          <div class="card-body text-center">
+            <p class="card-text text-choco">"SafeEats has transformed the way I shop for food. I feel so much more confident in my choices!"</p>
+            <p class="card-text"><small class="text-muted">- Alex, Vegan</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow-sm border-light h-100">
+          <div class="card-body text-center">
+            <p class="card-text text-choco">"As someone with multiple food allergies, SafeEats is a lifesaver. It’s so easy to use!"</p>
+            <p class="card-text"><small class="text-muted">- Priya, Allergic to Nuts</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow-sm border-light h-100">
+          <div class="card-body text-center">
+            <p class="card-text text-choco">"SafeEats helps me keep my diet in check with just a few clicks. It’s a must-have for anyone with dietary restrictions."</p>
+            <p class="card-text"><small class="text-muted">- Ahmed, Halal Diet</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="demo" class="video-section text-center bg-cream py-5">
     <div class="container">
         <h2 class="display-4 text-choco mb-2 py-4">See SafeEats in Action</h2>
@@ -60,6 +99,14 @@
         <div class="ratio ratio-16x9 mx-auto" style="max-width: 800px;">
             <iframe src="https://res.cloudinary.com/djbq33vew/video/upload/v1722868822/lcrnuktxylnvgvllrgon.mp4" allowfullscreen></iframe>
         </div>
+    </div>
+</div>
+
+<div id="cta" class="text-choco text-center py-5">
+    <div class="container">
+        <h2 class="display-4">Join SafeEats Today!</h2>
+        <p class="lead mb-4">Make informed food choices and stay true to your diet. Sign up now and start scanning!</p>
+        <a href="<%= new_user_session_path %>" class="btn btn-sand btn-lg">Get Started</a>
     </div>
 </div>
 
