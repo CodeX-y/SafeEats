@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationPolicy
   attr_reader :user, :record
 
@@ -11,11 +13,11 @@ class ApplicationPolicy
   end
 
   def show?
-    index?
+    false
   end
 
   def create?
-    index?
+    false
   end
 
   def new?
@@ -23,7 +25,7 @@ class ApplicationPolicy
   end
 
   def update?
-    index?
+    false
   end
 
   def edit?
@@ -31,7 +33,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    index?
+    false
   end
 
   class Scope

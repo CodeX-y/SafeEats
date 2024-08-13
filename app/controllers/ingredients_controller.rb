@@ -1,22 +1,27 @@
 class IngredientsController < ApplicationController
-  before_action only: %i[ show edit update destroy ]
+  before_action :set_ingredient, only: %i[ show edit update destroy ]
   require "csv"
 
   def index
     @ingredients = Ingredient.all
+    authorize @ingredients
   end
 
   def show
+    authorize @ingredient
   end
 
   def new
     @ingredient = Ingredient.new
+    authorize @ingredient
   end
 
   def edit
+    authorize @ingredient
   end
 
   def create
+    authorize @ingredient
     @ingredient = Ingredient.new(ingredient_params)
 
     respond_to do |format|
@@ -31,6 +36,8 @@ class IngredientsController < ApplicationController
   end
 
 def update
+  authorize @ingredient
+
   respond_to do |format|
     if @ingredient.update(ingredient_params)
       format.html { redirect_to ingredient_url(@ingredient), notice: "Ingredient was successfully updated." }
@@ -43,6 +50,7 @@ def update
 end
 
   def destroy
+    authorize @ingredient
     @ingredient.destroy!
 
     respond_to do |format|
