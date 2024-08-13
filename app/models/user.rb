@@ -29,20 +29,13 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
 
+  include Omniauthable
+
   private
 
   def check_diet_id
     if diet_id.nil?
       @diet_unselected = true
-    end
-  end
-
-  def self.from_omniauth(auth)
-    find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0, 20]
-      user.github_access_token = auth.credentials.token
-      user.username = auth.info.nickname
     end
   end
 end
