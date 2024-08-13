@@ -18,7 +18,8 @@
 #
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: %i[github]
 
   belongs_to :diet, required: false, class_name: "DietType", foreign_key: "diet_id"
   before_update :check_diet_id
@@ -30,6 +31,14 @@ class User < ApplicationRecord
   def check_diet_id
     if diet_id.nil?
       @diet_unselected = true
+    end
+  end
+
+  def self.from_omniauth(auth)
+    find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.github_access_token = auth.credentials.token
     end
   end
 end
