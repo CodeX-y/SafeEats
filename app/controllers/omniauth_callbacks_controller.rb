@@ -1,4 +1,6 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  skip_forgery_protection
+
   def github
     @user = User.from_omniauth(request.env["omniauth.auth"].except!(:extra))
 

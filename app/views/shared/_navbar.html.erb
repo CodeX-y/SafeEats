@@ -12,7 +12,7 @@
       <% if user_signed_in? %>
         <ul class="navbar-nav me-left" role="menubar">
           <li class="nav-item" role="none">
-            <%= link_to "Diet", edit_select_diet_path(current_user.username), class: "nav-link", role: "menuitem" %>
+            <%= link_to "Diet", select_diet_path, class: "nav-link", role: "menuitem" %>
           </li>
         </ul>
         <ul class="navbar-nav me-left" role="menubar">
