@@ -1,12 +1,15 @@
-<div class="hero-section text-center bg-cream py-7">
+<div class="hero-section text-center bg-cream py-7" role="banner">
   <div class="container">
     <h1 class="display-4">SafeEats</h1>
     <p class="lead text-center">Discover if your food is safe for you in just a few clicks</p>
-    <a href="#demo" class="btn btn-sand btn-lg">Watch the Demo</a>
+    <div class="d-flex justify-content-center gap-3 mt-3">
+      <a href="#demo" class="btn btn-sand btn-lg" role="button">Watch the Demo</a>
+      <a href="<%= new_user_session_path %>" class="btn btn-sand btn-lg" role="button">Get Started</a>
+    </div>
   </div>
 </div>
 
-<div id="features" class="container my-5 py-2">
+<div id="features" class="container my-5 py-2" role="main">
     <div class="row text-center mb-4">
         <div class="col-md-12">
             <h2 class="display-4 text-choco">Why Choose SafeEats?</h2>
@@ -15,7 +18,7 @@
     </div>
     <div class="row g-4">
         <div class="col-md-6 col-lg-3 d-flex">
-            <div class="card shadow-sm border-light d-flex flex-column h-100">
+            <div class="card shadow-sm border-light d-flex flex-column h-100" role="article">
                 <img class="card-img-top" src="<%= asset_path("vegan.png") %>" alt="Vegan-friendly meals">
                 <div class="card-body d-flex flex-column justify-content-center text-center">
                     <h5 class="card-title text-choco">Vegan-Friendly</h5>
@@ -24,7 +27,7 @@
             </div>
         </div>
         <div class="col-md-6 col-lg-3 d-flex">
-            <div class="card shadow-sm border-light d-flex flex-column h-100">
+            <div class="card shadow-sm border-light d-flex flex-column h-100" role="article">
                 <img class="card-img-top" src="<%= asset_path("vegetarian.png") %>" alt="Vegetarian options">
                 <div class="card-body d-flex flex-column justify-content-center text-center">
                     <h5 class="card-title text-choco">Vegetarian Options</h5>
@@ -33,7 +36,7 @@
             </div>
         </div>
         <div class="col-md-6 col-lg-3 d-flex">
-            <div class="card shadow-sm border-light d-flex flex-column h-100">
+            <div class="card shadow-sm border-light d-flex flex-column h-100" role="article">
                 <img class="card-img-top" src="<%= asset_path("halal_kosher.png") %>" alt="Halal and Kosher">
                 <div class="card-body d-flex flex-column justify-content-center text-center">
                     <h5 class="card-title text-choco">Halal & Kosher</h5>
@@ -42,7 +45,7 @@
             </div>
         </div>
         <div class="col-md-6 col-lg-3 d-flex">
-            <div class="card shadow-sm border-light d-flex flex-column h-100">
+            <div class="card shadow-sm border-light d-flex flex-column h-100" role="article">
                 <img class="card-img-top" src="<%= asset_path("allergen_free.png") %>" alt="Allergen-free meals">
                 <div class="card-body d-flex flex-column justify-content-center text-center">
                     <h5 class="card-title text-choco">Allergen-Free</h5>
@@ -53,9 +56,45 @@
     </div>
 </div>
 
-<div id="demo" class="video-section text-center bg-cream py-5">
+<div id="testimonials" class="container my-5 py-5" role="complementary">
+    <div class="row text-center mb-4">
+      <div class="col-md-12">
+        <h2 class="display-4 text-choco">What Our Users Are Saying</h2>
+        <p class="lead text-choco">Hear from people who have made SafeEats a part of their daily routine.</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card shadow-sm border-light h-100" role="article">
+          <div class="card-body text-center">
+            <p class="card-text text-choco">"SafeEats has transformed the way I shop for food. I feel so much more confident in my choices!"</p>
+            <p class="card-text"><small class="text-muted">- Alex, Vegan</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow-sm border-light h-100" role="article">
+          <div class="card-body text-center">
+            <p class="card-text text-choco">"As someone with multiple food allergies, SafeEats is a lifesaver. It’s so easy to use!"</p>
+            <p class="card-text"><small class="text-muted">- Priya, Allergic to Nuts</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow-sm border-light h-100" role="article">
+          <div class="card-body text-center">
+            <p class="card-text text-choco">"SafeEats helps me keep my diet in check with just a few clicks. It’s a must-have for anyone with dietary restrictions."</p>
+            <p class="card-text"><small class="text-muted">- Ahmed, Halal Diet</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="demo" class="video-section text-center bg-cream py-5" role="region" aria-labelledby="demo-heading">
     <div class="container">
-        <h2 class="display-4 text-choco mb-2 py-4">See SafeEats in Action</h2>
+        <h2 id="demo-heading" class="display-4 text-choco mb-2 py-4">See SafeEats in Action</h2>
         <p class="lead text-choco mb-4">Watch how SafeEats can transform the way you eat.</p>
         <div class="ratio ratio-16x9 mx-auto" style="max-width: 800px;">
             <iframe src="https://res.cloudinary.com/djbq33vew/video/upload/v1722868822/lcrnuktxylnvgvllrgon.mp4" allowfullscreen></iframe>
@@ -63,7 +102,15 @@
     </div>
 </div>
 
-<footer class="bg-choco text-white text-center py-4">
+<div id="cta" class="text-choco text-center py-5" role="region" aria-labelledby="cta-heading">
+    <div class="container">
+        <h2 id="cta-heading" class="display-4">Join SafeEats Today!</h2>
+        <p class="lead mb-4">Make informed food choices and stay true to your diet. Sign up now and start scanning!</p>
+        <a href="<%= new_user_session_path %>" class="btn btn-sand btn-lg" role="button">Get Started</a>
+    </div>
+</div>
+
+<footer class="bg-choco text-white text-center py-4" role="contentinfo">
     <p>&copy; 2024 SafeEats. All rights reserved.</p>
-    <a href="#top" class="btn btn-sand">Back to Top</a>
+    <a href="#top" class="btn btn-sand" role="button">Back to Top</a>
 </footer>

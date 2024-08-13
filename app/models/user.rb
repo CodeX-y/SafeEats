@@ -5,9 +5,12 @@
 #  id                     :integer          not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  github_access_token    :string
+#  provider               :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  uid                    :string
 #  username               :string           default(""), not null
 #  diet_id                :integer
 #
@@ -18,12 +21,15 @@
 #
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: %i[github]
 
   belongs_to :diet, required: false, class_name: "DietType", foreign_key: "diet_id"
   before_update :check_diet_id
 
   validates :username, presence: true, uniqueness: true
+
+  include Omniauthable
 
   private
 

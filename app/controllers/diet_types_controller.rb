@@ -3,6 +3,7 @@ class DietTypesController < ApplicationController
 
   def index
     @diet_types = DietType.all
+    authorize @diet_types
   end
 
   def show
@@ -53,6 +54,7 @@ class DietTypesController < ApplicationController
   private
     def set_diet_type
       @diet_type = DietType.find(params[:id])
+      authorize @diet_type
     end
 
     def diet_type_params

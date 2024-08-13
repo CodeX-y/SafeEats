@@ -1,6 +1,6 @@
 require "httparty"
 
-class IngredientComplianceService
+class FoodComplianceService
   include HTTParty
   base_uri "https://world.openfoodfacts.net/api/v0"
 

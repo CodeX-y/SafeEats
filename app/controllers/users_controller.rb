@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  # include UserConcern
   before_action :set_user
 
   private
