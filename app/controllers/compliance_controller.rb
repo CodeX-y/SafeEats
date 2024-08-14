@@ -3,7 +3,7 @@ class ComplianceController < ApplicationController
 
   def food
     if current_user.instance_variable_get(:@diet_unselected)
-      redirect_to edit_select_diet_path, alert: "Please select a diet before proceeding."
+      redirect_to select_diet_path, alert: "Please select a diet before proceeding."
     end
   end
 
@@ -29,7 +29,7 @@ class ComplianceController < ApplicationController
 
   def check_diet_id
     if current_user.diet_id.blank?
-      redirect_to edit_select_diet_path(current_user.username), alert: "Please select a diet type before choosing a meal."
+      redirect_to select_diet_path, alert: "Please select a diet type before choosing a meal."
     end
   end
 end
