@@ -109,8 +109,43 @@
 }
 
 @media (max-width: 767px) {
-  .compliance-result {
-    font-size: 3rem;
+  .row.g-4 {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+
+  .col-md-6.col-lg-3 {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 85%;
+  }
+
+  .col-md-6.col-lg-3:last-child {
+    margin-right: 1rem;
+  }
+
+  #testimonials .row.g-4 {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  #testimonials .col-md-4 {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 75%;
     padding: 0.5rem;
+  }
+
+  #testimonials .card-body {
+    font-size: 0.9rem;
+    padding: 1rem;
   }
 }
