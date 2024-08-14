@@ -3,7 +3,7 @@ Devise.setup do |config|
   
   require "devise/orm/active_record"
 
-  config.omniauth :github, Rails.application.credentials.github[:client_id], Rails.application.credentials.github[:client_secret], scope: "user"
+  config.omniauth :github, ENV["client_id"], ENV["client_secret"], scope: "user"
   config.case_insensitive_keys = [:email]
   config.strip_whitespace_keys = [:email]
   config.skip_session_storage = [:http_auth]
