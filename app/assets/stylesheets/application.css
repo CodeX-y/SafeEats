@@ -86,9 +86,9 @@
 .compliance-result {
   text-align: center;
   color: var(--text);
-  font-size: 5rem;
+  font-size: 4.5rem;
   font-weight: bold;
-  padding: 1rem;
+  padding: 3rem;
   box-sizing: border-box;
 }
 
@@ -122,15 +122,18 @@
     display: block;
   }
 
-  .can-eat {
+  /* .can-eat {
     justify-content: center;
     font-size: 4rem;
     margin: 1rem;
+    padding: 1rem;
   }
   
   .cant-eat {
     justify-content: center;
-    font-size: 1rem;
+    font-size: 4rem;
+    margin: 1rem;
+    padding: 1rem; */
   }
 
   .row.g-4 {
