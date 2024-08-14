@@ -6,6 +6,6 @@ import Rails from '@rails/ujs'
 
 Turbo.session.drive = false
 
-window.jQuery = jquery
-window.$ = jquery
-Rails.start()
+window.jQuery = jquery;
+window.$ = jquery;
+Rails.start();

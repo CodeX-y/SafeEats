@@ -2,9 +2,6 @@ class ComplianceController < ApplicationController
   before_action :check_diet_id, only: [:food, :check_compliance]
 
   def food
-    if current_user.instance_variable_get(:@diet_unselected)
-      redirect_to select_diet_path, alert: "Please select a diet before proceeding."
-    end
   end
 
   def check_compliance
