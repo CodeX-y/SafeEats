@@ -122,20 +122,6 @@
     display: block;
   }
 
-  /* .can-eat {
-    justify-content: center;
-    font-size: 4rem;
-    margin: 1rem;
-    padding: 1rem;
-  }
-  
-  .cant-eat {
-    justify-content: center;
-    font-size: 4rem;
-    margin: 1rem;
-    padding: 1rem; */
-  }
-
   .row.g-4 {
     display: flex;
     flex-wrap: nowrap;
