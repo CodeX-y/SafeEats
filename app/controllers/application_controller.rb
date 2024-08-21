@@ -1,6 +1,7 @@
+# might be nice to have Punditable and Devisable concerns to separate out the logic
 class ApplicationController < ActionController::Base
   include Pundit
-  
+
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   skip_forgery_protection
@@ -15,6 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
+    # don't need an extra comma at end of array
     devise_parameter_sanitizer.permit(:sign_up, :keys => [:username,])
     devise_parameter_sanitizer.permit(:account_update, :keys => [:username])
   end
@@ -23,7 +25,7 @@ class ApplicationController < ActionController::Base
 
     def user_not_authorized
       flash[:alert] = "You are not authorized to perform this action."
-      
+
       redirect_back fallback_location: root_url
     end
 end

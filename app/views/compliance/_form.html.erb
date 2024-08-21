@@ -1,6 +1,7 @@
 <%= form_with url: compliance_path, method: :get do |form| %>
   <div class="mb-3">
     <%= form.label :ingredients, "Enter Barcode or Ingredients", class: "pb-3 fs-3" %>
+    <%# nice regex %>
     <%= form.text_field :ingredients, class: "form-control", placeholder: "e.g. sugar, salt, flour", pattern: "[a-zA-Z0-9, ]+", title: "Please enter valid ingredients. Only letters, numbers, and commas are allowed." %>
   </div>
   <div class="text-center">

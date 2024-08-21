@@ -5,9 +5,10 @@ class SelectDietController < ApplicationController
   end
 
   def update
-    current_user.diet_id = params["diet_id"]
-    
-    if current_user.save
+    # current_user.diet_id = params["diet_id"]
+
+    if current_user.update(diet_id: params[:diet_id])
+      # could just be current_user.diet.nil?
       if current_user.instance_variable_get(:@diet_unselected)
         redirect_to select_diet_path, alert: "Please select a diet before proceeding."
       else

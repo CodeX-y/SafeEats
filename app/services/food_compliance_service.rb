@@ -1,3 +1,5 @@
+# I'd recommend breaking this up into smaller methods and separate lookup by barcode and name into separate services
+
 require "httparty"
 
 class FoodComplianceService
@@ -11,15 +13,17 @@ class FoodComplianceService
     kosher: ["kosher", "hechsher"]
   }
 
-  def initialize(user, inputs)
+  # i think renaming 'ingredients' to 'ingredients' would be more clear
+  def initialize(user, ingredients)
     @user = user
-    @inputs = inputs
+    @ingredients = ingredients
     set_diet_ids
   end
 
   def call
-    @inputs.all? do |input|
+    @ingredients.all? do |input|
       if input_is_barcode?(input)
+        # a good refactor might be to have separate services for checking compliance by name vs by barcode
         product = fetch_product_by_barcode(input)
         if product
           keywords = extract_keywords(product)
@@ -38,6 +42,8 @@ class FoodComplianceService
   private
 
   def set_diet_ids
+    # could normalize DietType#name with a callback to downcase before saving to clean up these queries
+    # DietType.find_by(name: "vegan")
     vegan_diet = DietType.find_by("LOWER(name) = ?", "vegan")
     vegetarian_diet = DietType.find_by("LOWER(name) = ?", "vegetarian")
     halal_diet = DietType.find_by("LOWER(name) = ?", "halal")
@@ -49,6 +55,7 @@ class FoodComplianceService
     @kosher_diet_id = kosher_diet&.id
   end
 
+  # might be good to break this up into smaller methods
   def compliant?(tags_or_ingredient)
     if tags_or_ingredient.is_a?(Array)
       case @user.diet_id
@@ -119,6 +126,7 @@ class FoodComplianceService
   end
 
   def fetch_ingredient_by_name(name)
+    # normalize Ingredient#name with a before_save to downcase would make this easier
     ingredient = Ingredient.where("LOWER(name) = ?", name.downcase).first
     if ingredient
       puts "Fetched ingredient: #{ingredient}"

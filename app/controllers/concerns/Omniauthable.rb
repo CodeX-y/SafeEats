@@ -1,3 +1,8 @@
+# Ruby filenames should be all lower_snake_case.rb
+# This is a 'model' concern for User.rb. It should be in `app/models/concerns`.
+#
+# might want to adjust permissions being requested by GitHub
+# it's requesting to read AND WRITE all user profile data on GitHub 😬
 module Omniauthable
   extend ActiveSupport::Concern
 

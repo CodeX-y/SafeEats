@@ -3,7 +3,7 @@ require "csv"
 namespace :db do
   desc "Fill the ingredients table from ingredients.csv"
   task :slurp => :environment do
-    file_path = Rails.root.join('db', 'ingredients.csv')
+    file_path = Rails.root.join('lib', 'csvs', 'ingredients.csv')
 
     CSV.foreach(file_path, headers: true) do |row|
       diet_name = row["Diet Compliance"].strip.downcase

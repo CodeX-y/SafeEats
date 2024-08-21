@@ -1,4 +1,5 @@
 # SafeEats
+<!-- good 1-liner -->
 SafeEats is an app that helps users determine if a food product meets their dietary preferences, including vegan, vegetarian, halal, and kosher standards.
 
 ## Setup and Installation
@@ -9,11 +10,13 @@ SafeEats is an app that helps users determine if a food product meets their diet
    cd safe-eats
    ```
 3. **Install Dependencies:**
+    <!-- do we need npm/package.json? -->
     ```bash
     bundle install
     npm install
     ```
 4. **Set Up the Database:**
+   <!-- might be nice to have a rake dev task to do these steps in 1 command -->
     ```bash
     rails db:create
     rails db:migrate

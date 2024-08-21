@@ -33,6 +33,7 @@ class User < ApplicationRecord
 
   private
 
+  # not needed, could just be user.diet_id.nil?
   def check_diet_id
     if diet_id.nil?
       @diet_unselected = true

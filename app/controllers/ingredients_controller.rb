@@ -1,6 +1,8 @@
+# is this needed?
+require "csv"
 class IngredientsController < ApplicationController
   before_action :set_ingredient, only: %i[ show edit update destroy ]
-  require "csv"
+  # might be nice to authorize here
 
   def index
     @ingredients = Ingredient.all
@@ -21,8 +23,9 @@ class IngredientsController < ApplicationController
   end
 
   def create
-    authorize @ingredient
-    @ingredient = Ingredient.new(ingredient_params)
+    # @ingredient is nil here
+    # authorize @ingredient
+    @ingredient = authorize Ingredient.new(ingredient_params)
 
     respond_to do |format|
       if @ingredient.save

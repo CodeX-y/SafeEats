@@ -1,3 +1,4 @@
+# is this being used anywhere?
 class UserPolicy
   attr_reader :current_user, :user
 
@@ -7,6 +8,6 @@ class UserPolicy
   end
 
   def show?
-    user == current_user 
+    user == current_user
   end
 end

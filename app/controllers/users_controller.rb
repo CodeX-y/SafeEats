@@ -1,3 +1,4 @@
+# doesn't seem like this controller is being used anywhere
 class UsersController < ApplicationController
   before_action :set_user
 
